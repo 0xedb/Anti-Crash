@@ -21,10 +21,13 @@ public class AntiCrashController implements Initializable {
 
     @FXML
     private AnchorPane landingPage;
+    
+    public static boolean hasFaded = false;
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        startSplashScreen();
+        if (!hasFaded)
+            startSplashScreen();
     }    
     
     
@@ -37,9 +40,24 @@ public class AntiCrashController implements Initializable {
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
             fadeIn.setCycleCount(1);
+            
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), splashPane);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setCycleCount(1);
+            
             fadeIn.play();
+            fadeIn.setOnFinished(e -> fadeOut.play());
+            fadeOut.setOnFinished(e -> {
+                try {
+                    AnchorPane programHome = FXMLLoader.load(getClass().getResource("AntiCrash.fxml"));
+                    landingPage.getChildren().setAll(programHome);
+                } catch (IOException ex) {
+                    Logger.getLogger(AntiCrashController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
             
-            
+            hasFaded = true;
         } catch (IOException ex) {
             Logger.getLogger(AntiCrash.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane fx:id="landingPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anti.crash.AntiCrashController" />
+<AnchorPane fx:id="landingPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anti.crash.AntiCrashController">
+   <children>
+      <JFXSpinner layoutX="326.0" layoutY="277.0" />
+   </children>
+</AnchorPane>
