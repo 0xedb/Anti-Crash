@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="lbg" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1168.0" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.LandingPageController">
+   <children>
+      <AnchorPane fx:id="sidePane" layoutX="-15.0" layoutY="-4.0" prefHeight="762.0" prefWidth="564.0" style="-fx-background-color: #C6C4B8B3; -fx-background-radius: 18px;">
+         <children>
+            <Separator layoutX="9.0" layoutY="693.0" prefHeight="3.0" prefWidth="554.0" />
+            <ImageView fitHeight="211.0" fitWidth="211.0" layoutX="177.0" layoutY="143.0">
+               <image>
+                  <Image url="@resources/clock.png" />
+               </image>
+            </ImageView>
+            <Text fill="#571010" layoutX="117.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Anti ※ Clash">
+               <font>
+                  <Font name="Aclonica" size="55.0" />
+               </font>
+            </Text>
+            <Separator layoutX="428.0" layoutY="54.0" orientation="VERTICAL" prefHeight="115.0" prefWidth="5.0" rotate="45.0" />
+            <Separator layoutX="131.0" layoutY="54.0" orientation="VERTICAL" prefHeight="115.0" prefWidth="5.0" rotate="135.0" />
+         </children></AnchorPane>
+      <AnchorPane fx:id="background" layoutX="548.0" layoutY="-2.0" prefHeight="762.0" prefWidth="623.0" style="-fx-background-color: #02020299;" />
+   </children>
+</AnchorPane>
