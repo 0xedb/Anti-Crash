@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,6 +25,11 @@
             </Text>
             <Separator layoutX="428.0" layoutY="54.0" orientation="VERTICAL" prefHeight="115.0" prefWidth="5.0" rotate="45.0" />
             <Separator layoutX="131.0" layoutY="54.0" orientation="VERTICAL" prefHeight="115.0" prefWidth="5.0" rotate="135.0" />
+            <JFXButton fx:id="next" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" focusTraversable="false" layoutX="225.0" layoutY="528.0" onAction="#next" ripplerFill="BLACK" text="↦ " textFill="#430000" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="54.0" />
+               </font>
+            </JFXButton>
          </children></AnchorPane>
       <AnchorPane fx:id="background" layoutX="548.0" layoutY="-2.0" prefHeight="762.0" prefWidth="623.0" style="-fx-background-color: #02020299;" />
    </children>
