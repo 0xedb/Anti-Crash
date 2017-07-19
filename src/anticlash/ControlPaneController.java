@@ -4,8 +4,11 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import com.jfoenix.controls.JFXToggleButton;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +21,7 @@ import javafx.scene.control.Tooltip;
  * @author bruno
  */
 public class ControlPaneController implements Initializable {
-    
+
     @FXML
     private JFXCheckBox daily;
     @FXML
@@ -39,7 +42,7 @@ public class ControlPaneController implements Initializable {
     private JFXCheckBox sat;
     @FXML
     private JFXCheckBox sun;
-    
+
     ArrayList<JFXCheckBox> chb = new ArrayList<>();
     @FXML
     private JFXTimePicker startTime;
@@ -49,6 +52,12 @@ public class ControlPaneController implements Initializable {
     private JFXButton add;
     @FXML
     private JFXTextField courseID;
+
+    private HashMap<String, Course> courseMap;
+    @FXML
+    private JFXTextField courseTitle;
+    @FXML
+    private JFXToggleButton required;
 
     /**
      * Initializes the controller class.
@@ -62,10 +71,10 @@ public class ControlPaneController implements Initializable {
         chb.add(fri);
         chb.add(sat);
         chb.add(sun);
-        
+
         courseID.setTooltip(new Tooltip("Each course MUST have a UNIQUE ID"));
     }
-    
+
     @FXML
     private void selectAll(ActionEvent event) {
         if (weekday.isSelected() || weekend.isSelected()) {
@@ -79,7 +88,7 @@ public class ControlPaneController implements Initializable {
             uncheckAll();
         }
     }
-    
+
     @FXML
     private void selectWeekday(ActionEvent event) {
         if (daily.isSelected() || weekend.isSelected()) {
@@ -97,7 +106,7 @@ public class ControlPaneController implements Initializable {
             sun.setSelected(false);
         }
     }
-    
+
     @FXML
     private void selectWeekend(ActionEvent event) {
         if (daily.isSelected() || weekday.isSelected()) {
@@ -112,24 +121,52 @@ public class ControlPaneController implements Initializable {
         } else {
             uncheckAll();
         }
-        
+
     }
-    
+
     @FXML
     private void add(ActionEvent event) {
-        System.out.println(startTime.getValue());
+        //System.out.println(startTime.getValue());
+        System.out.println(checkRequiredFields());
     }
-    
+
     private void checkeAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(true);
         }
     }
-    
+
     private void uncheckAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(false);
         }
     }
-    
+
+    private boolean checkRequiredFields() {
+        int count = 0;
+        String course = courseTitle.getText();
+        if (course != null) {
+            count++;
+        }
+        String id = courseID.getText();
+        if (courseMap == null || !courseMap.containsKey(id)) {
+            count++;
+        }
+        for (JFXCheckBox a : chb) {
+            if (a.isSelected());
+            count++;
+            break;
+        }
+        LocalTime sTime = startTime.getValue();
+        LocalTime eTime = endTime.getValue();
+        if (!(sTime == null)) {
+            count++;
+        }
+        if (!(eTime == null)) {
+            count++;
+        }
+
+        return count == 5;
+    }
+
 }
