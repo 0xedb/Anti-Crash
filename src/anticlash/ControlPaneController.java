@@ -1,4 +1,3 @@
- 
 package anticlash;
 
 import com.jfoenix.controls.JFXButton;
@@ -38,7 +37,7 @@ public class ControlPaneController implements Initializable {
     private JFXCheckBox sat;
     @FXML
     private JFXCheckBox sun;
-    
+
     ArrayList<JFXCheckBox> chb = new ArrayList<>();
     @FXML
     private JFXTimePicker startTime;
@@ -46,60 +45,77 @@ public class ControlPaneController implements Initializable {
     private JFXTimePicker endTime;
     @FXML
     private JFXButton add;
-    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        chb.add(mon); chb.add(tue); chb.add(wed); chb.add(thur);
-        chb.add(fri); chb.add(sat); chb.add(sun);
-        
-        
-         
-    }    
+        chb.add(mon);
+        chb.add(tue);
+        chb.add(wed);
+        chb.add(thur);
+        chb.add(fri);
+        chb.add(sat);
+        chb.add(sun);
+    }
 
     @FXML
     private void selectAll(ActionEvent event) {
-        if(daily.isSelected())
-            disableAll(chb);
-        else
-            enableAll(chb);
-    }
-    
-    private void disableAll(ArrayList<JFXCheckBox> a) {
-        for(JFXCheckBox b : a) {
-            b.setDisable(true);
-            b.setSelected(false);
-            weekday.setDisable(true);
-            weekend.setDisable(true);
-            
+        if (weekday.isSelected() || weekend.isSelected()) {
             weekday.setSelected(false);
             weekend.setSelected(false);
         }
-    }
-    
-    private void enableAll(ArrayList<JFXCheckBox> a) {
-        for(JFXCheckBox b : a) 
-            b.setDisable(false);
-        weekday.setDisable(false);
-            weekend.setDisable(false);
+        if (daily.isSelected()) {
+            checkeAll();
+        } else {
+            uncheckAll();
+        }
     }
 
     @FXML
     private void selectWeekday(ActionEvent event) {
-        
+        if (daily.isSelected() || weekend.isSelected()) {
+            daily.setSelected(false);
+            weekend.setSelected(false);
+        }
+        if (weekday.isSelected()) {
+            checkeAll();
+            sat.setDisable(false);
+            sun.setDisable(false);
+            sat.setSelected(false);
+            sun.setSelected(false);
+        } else {
+            uncheckAll();
+            sat.setSelected(false);
+            sun.setSelected(false);
+            sat.setDisable(false);
+            sun.setDisable(false);
+        }
     }
 
     @FXML
     private void selectWeekend(ActionEvent event) {
-        
+
     }
 
     @FXML
     private void add(ActionEvent event) {
         System.out.println(startTime.getValue());
     }
-    
+
+    private void checkeAll() {
+        for (JFXCheckBox a : chb) {
+            a.setSelected(true);
+            a.setDisable(true);
+        }
+    }
+
+    private void uncheckAll() {
+        for (JFXCheckBox a : chb) {
+            a.setSelected(false);
+            a.setDisable(false);
+        }
+    }
+
 }

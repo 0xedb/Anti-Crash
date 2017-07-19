@@ -11,7 +11,7 @@
 
 <AnchorPane id="bgs" prefHeight="755.0" prefWidth="1168.0" style="-fx-background-color: #04280D99;" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.ControlPaneController">
    <children>
-      <AnchorPane layoutX="-26.0" prefHeight="755.0" prefWidth="461.0" style="-fx-background-radius: 12px; -fx-background-color: #15151480;">
+      <AnchorPane layoutX="-26.0" prefHeight="755.0" prefWidth="461.0" style="-fx-background-radius: 12px; -fx-background-color: #00201C;">
          <children>
             <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="126.0" layoutY="110.0" prefHeight="48.0" prefWidth="230.0" promptText="Course Title" style="-fx-text-fill: white;" unFocusColor="#3ec0fc" />
             <JFXTextField focusColor="WHITE" labelFloat="true" layoutX="126.0" layoutY="190.0" prefHeight="48.0" prefWidth="230.0" promptText="Course ID" style="-fx-text-fill: white;" unFocusColor="#3ec0fc" />
@@ -24,7 +24,7 @@
             <JFXCheckBox fx:id="fri" layoutX="186.0" layoutY="455.0" style="-fx-text-fill: white;" text="Fri" unCheckedColor="WHITE" />
             <JFXCheckBox fx:id="sat" layoutX="244.0" layoutY="455.0" style="-fx-text-fill: white;" text="Sat" unCheckedColor="WHITE" />
             <JFXCheckBox fx:id="sun" layoutX="310.0" layoutY="455.0" style="-fx-text-fill: white;" text="Sun" unCheckedColor="WHITE" />
-            <JFXToggleButton layoutX="163.0" layoutY="482.0" prefHeight="48.0" prefWidth="158.0" text="Required" textFill="WHITE" toggleColor="#09e16a" unToggleColor="#2de172" unToggleLineColor="#ff3232">
+            <JFXToggleButton layoutX="163.0" layoutY="482.0" prefHeight="48.0" prefWidth="158.0" text="Required" textFill="WHITE" toggleColor="#09e16a" unToggleColor="WHITE" unToggleLineColor="#a19999">
                <font>
                   <Font size="18.0" />
                </font>
