@@ -126,7 +126,7 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void add(ActionEvent event) {
-        //System.out.println(startTime.getValue());
+        //System.out.println(courseTitle.getText().length());
         System.out.println(checkRequiredFields());
     }
 
@@ -144,18 +144,18 @@ public class ControlPaneController implements Initializable {
 
     private boolean checkRequiredFields() {
         int count = 0;
-        String course = courseTitle.getText();
-        if (course != null) {
+        String course = courseTitle.getText().trim();
+        if (course.length() > 0) {
             count++;
         }
-        String id = courseID.getText();
-        if (courseMap == null || !courseMap.containsKey(id)) {
+        String id = courseID.getText().trim();
+        if (id.length() > 0 && (courseMap == null || !courseMap.containsKey(id))) {
             count++;
         }
-        for (JFXCheckBox a : chb) {
-            if (a.isSelected());
+
+        if (mon.isSelected() || tue.isSelected() || wed.isSelected() || thur.isSelected()
+                || fri.isSelected() || sat.isSelected() || sun.isSelected()) {
             count++;
-            break;
         }
         LocalTime sTime = startTime.getValue();
         LocalTime eTime = endTime.getValue();
