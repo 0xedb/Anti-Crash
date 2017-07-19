@@ -160,10 +160,11 @@ public class ControlPaneController implements Initializable {
         LocalTime sTime = startTime.getValue();
         LocalTime eTime = endTime.getValue();
         if (!(sTime == null)) {
-            count++;
-        }
-        if (!(eTime == null)) {
-            count++;
+            if (!(eTime == null)) {
+                if (sTime.isBefore(eTime)) {
+                    count += 2;
+                }
+            }
         }
 
         return count == 5;
