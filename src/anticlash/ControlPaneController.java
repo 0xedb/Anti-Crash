@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tooltip;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -53,11 +54,13 @@ public class ControlPaneController implements Initializable {
     @FXML
     private JFXTextField courseID;
 
-    private HashMap<String, Course> courseMap;
+    private HashMap<String, Course> courseMap = new HashMap<>();
     @FXML
     private JFXTextField courseTitle;
     @FXML
     private JFXToggleButton required;
+    @FXML
+    private GridPane grid;
 
     /**
      * Initializes the controller class.
@@ -126,8 +129,7 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void add(ActionEvent event) {
-        //System.out.println(courseTitle.getText().length());
-        System.out.println(checkRequiredFields());
+
     }
 
     private void checkeAll() {
@@ -142,7 +144,7 @@ public class ControlPaneController implements Initializable {
         }
     }
 
-    private boolean checkRequiredFields() {
+    private boolean isValid() {
         int count = 0;
         boolean req = required.isSelected();
         String course = courseTitle.getText().trim();
