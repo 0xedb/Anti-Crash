@@ -144,6 +144,7 @@ public class ControlPaneController implements Initializable {
 
     private boolean checkRequiredFields() {
         int count = 0;
+        boolean req = required.isSelected();
         String course = courseTitle.getText().trim();
         if (course.length() > 0) {
             count++;
@@ -167,6 +168,10 @@ public class ControlPaneController implements Initializable {
             }
         }
 
+        if (count == 5) {
+            Course value = new Course(course, id, sTime, eTime, req);
+            courseMap.put(id, value);
+        }
         return count == 5;
     }
 
