@@ -71,7 +71,7 @@ public class ControlPaneController implements Initializable {
     ArrayList<Course> thursdayList = new ArrayList<>();
     ArrayList<Course> fridayList = new ArrayList<>();
     ArrayList<Course> saturdayList = new ArrayList<>();
-    ArrayList<Course> sunList = new ArrayList<>();
+    ArrayList<Course> sundayList = new ArrayList<>();
 
     /**
      * Initializes the controller class.
