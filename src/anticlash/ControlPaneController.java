@@ -62,6 +62,9 @@ public class ControlPaneController implements Initializable {
     @FXML
     private GridPane grid;
 
+    String course, id;
+    LocalTime sTime, eTime;
+
     /**
      * Initializes the controller class.
      */
@@ -129,8 +132,13 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void add(ActionEvent event) {
-        System.out.println(isInfoValid());
-        System.out.println("_________________________________________________________");
+        if (isInfoValid()) {
+            Course value = new Course(course, id, sTime, eTime, required.isSelected());
+            courseMap.put(id, value);
+            System.out.println("Successfully added" + ".................................");
+        } else {
+            System.out.println("Unsuccessful" + ".................................");
+        }
     }
 
     private void checkeAll() {
@@ -150,16 +158,17 @@ public class ControlPaneController implements Initializable {
     }
 
     private boolean isCourseValid() {
-        String id = courseID.getText().trim();
-        return courseTitle.getText().trim().length() > 0
+        id = courseID.getText().trim();
+        course = courseTitle.getText().trim();
+        return course.length() > 0
                 && id.length() > 0
                 && (courseMap == null || !courseMap.containsKey(id));
 
     }
 
     private boolean isTimeValid() {
-        LocalTime sTime = startTime.getValue();
-        LocalTime eTime = endTime.getValue();
+        sTime = startTime.getValue();
+        eTime = endTime.getValue();
         return ((sTime != null) && (eTime != null)) && sTime.isBefore(eTime);
     }
 
@@ -170,6 +179,4 @@ public class ControlPaneController implements Initializable {
                 || sun.isSelected();
     }
 
-//    Course value = new Course(course, id, sTime, eTime, req);
-//            courseMap.put(id, value);
 }
