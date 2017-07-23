@@ -129,7 +129,8 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void add(ActionEvent event) {
-
+        System.out.println(isInfoValid());
+        System.out.println("_________________________________________________________");
     }
 
     private void checkeAll() {
@@ -144,37 +145,31 @@ public class ControlPaneController implements Initializable {
         }
     }
 
-    private boolean isValid() {
-        int count = 0;
-        boolean req = required.isSelected();
-        String course = courseTitle.getText().trim();
-        if (course.length() > 0) {
-            count++;
-        }
-        String id = courseID.getText().trim();
-        if (id.length() > 0 && (courseMap == null || !courseMap.containsKey(id))) {
-            count++;
-        }
-
-        if (mon.isSelected() || tue.isSelected() || wed.isSelected() || thur.isSelected()
-                || fri.isSelected() || sat.isSelected() || sun.isSelected()) {
-            count++;
-        }
-        LocalTime sTime = startTime.getValue();
-        LocalTime eTime = endTime.getValue();
-        if (!(sTime == null)) {
-            if (!(eTime == null)) {
-                if (sTime.isBefore(eTime)) {
-                    count += 2;
-                }
-            }
-        }
-
-        if (count == 5) {
-            Course value = new Course(course, id, sTime, eTime, req);
-            courseMap.put(id, value);
-        }
-        return count == 5;
+    private boolean isInfoValid() {
+        return isCourseValid() && isTimeValid() && isDayValid();
     }
 
+    private boolean isCourseValid() {
+        String id = courseID.getText().trim();
+        return courseTitle.getText().trim().length() > 0
+                && id.length() > 0
+                && (courseMap == null || !courseMap.containsKey(id));
+
+    }
+
+    private boolean isTimeValid() {
+        LocalTime sTime = startTime.getValue();
+        LocalTime eTime = endTime.getValue();
+        return ((sTime != null) && (eTime != null)) && sTime.isBefore(eTime);
+    }
+
+    private boolean isDayValid() {
+        return mon.isSelected() || tue.isSelected()
+                || wed.isSelected() || thur.isSelected()
+                || fri.isSelected() || sat.isSelected()
+                || sun.isSelected();
+    }
+
+//    Course value = new Course(course, id, sTime, eTime, req);
+//            courseMap.put(id, value);
 }
