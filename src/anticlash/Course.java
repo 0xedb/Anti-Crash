@@ -1,8 +1,6 @@
 package anticlash;
 
 import java.time.LocalTime;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
 
 /**
  *
@@ -10,18 +8,44 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Course {
 
-    private final SimpleStringProperty courseTitle;
-    private final SimpleStringProperty courseId;
+    private final String courseTitle;
+    private final String courseId;
     private final LocalTime startTime;
     private final LocalTime endTime;
-    private final SimpleBooleanProperty required;
+    private final boolean required;
+    private final String[] days;
 
-    public Course(SimpleStringProperty courseTitle, SimpleStringProperty courseId, LocalTime startTime, LocalTime endTime, SimpleBooleanProperty required) {
+    public Course(String courseTitle, String courseId, LocalTime startTime, LocalTime endTime, boolean required, String[] days) {
         this.courseTitle = courseTitle;
         this.courseId = courseId;
         this.startTime = startTime;
         this.endTime = endTime;
         this.required = required;
+        this.days = days;
+    }
+
+    public String getCourseTitle() {
+        return courseTitle;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public boolean isRequired() {
+        return required;
+    }
+
+    public String[] getDays() {
+        return days;
     }
 
 }
