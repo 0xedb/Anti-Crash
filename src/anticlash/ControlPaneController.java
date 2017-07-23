@@ -72,6 +72,8 @@ public class ControlPaneController implements Initializable {
     ArrayList<Course> fridayList = new ArrayList<>();
     ArrayList<Course> saturdayList = new ArrayList<>();
     ArrayList<Course> sundayList = new ArrayList<>();
+    @FXML
+    private JFXButton clash;
 
     /**
      * Initializes the controller class.
@@ -145,15 +147,7 @@ public class ControlPaneController implements Initializable {
             Course value = new Course(course, id, sTime, eTime, required.isSelected(), days);
             courseMap.put(id, value);
             putCourse(value, days);
-            for (Course a : mondayList) {
-                System.out.println(a.getCourseId());
-            }
-            for (Course a : tuesdayList) {
-                System.out.println(a.getCourseId());
-            }
-            System.out.println("Successfully added" + ".................................");
-        } else {
-            System.out.println("Unsuccessful" + ".................................");
+            System.out.println("................" + "Successfully added" + "................");
         }
     }
 
@@ -233,6 +227,10 @@ public class ControlPaneController implements Initializable {
                     break;
             }
         }
+    }
+
+    @FXML
+    private void clash(ActionEvent event) {
     }
 
 }
