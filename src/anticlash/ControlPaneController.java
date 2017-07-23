@@ -65,6 +65,14 @@ public class ControlPaneController implements Initializable {
     String course, id;
     LocalTime sTime, eTime;
 
+    ArrayList<Course> mondayList = new ArrayList<>();
+    ArrayList<Course> tuesdayList = new ArrayList<>();
+    ArrayList<Course> wednesdayList = new ArrayList<>();
+    ArrayList<Course> thursdayList = new ArrayList<>();
+    ArrayList<Course> fridayList = new ArrayList<>();
+    ArrayList<Course> saturdayList = new ArrayList<>();
+    ArrayList<Course> sunList = new ArrayList<>();
+
     /**
      * Initializes the controller class.
      */
@@ -136,12 +144,16 @@ public class ControlPaneController implements Initializable {
         if (isInfoValid()) {
             Course value = new Course(course, id, sTime, eTime, required.isSelected(), days);
             courseMap.put(id, value);
+            putCourse(value, days);
+            for (Course a : mondayList) {
+                System.out.println(a.getCourseId());
+            }
+            for (Course a : tuesdayList) {
+                System.out.println(a.getCourseId());
+            }
             System.out.println("Successfully added" + ".................................");
         } else {
             System.out.println("Unsuccessful" + ".................................");
-        }
-        for (String w : days) {
-            System.out.println(w);
         }
     }
 
@@ -191,6 +203,36 @@ public class ControlPaneController implements Initializable {
             }
         }
         return days;
+    }
+
+    private void putCourse(Course subject, ArrayList<String> array) {
+        for (String w : array) {
+            switch (w) {
+                case "Mon":
+                    mondayList.add(subject);
+                    break;
+                case "Tue":
+                    tuesdayList.add(subject);
+                    break;
+                case "Wed":
+                    tuesdayList.add(subject);
+                    break;
+                case "Thur":
+                    tuesdayList.add(subject);
+                    break;
+                case "Fri":
+                    tuesdayList.add(subject);
+                    break;
+                case "Sat":
+                    tuesdayList.add(subject);
+                    break;
+                case "Sun":
+                    tuesdayList.add(subject);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
 }
