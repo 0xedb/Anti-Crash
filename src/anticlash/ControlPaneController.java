@@ -132,12 +132,16 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void add(ActionEvent event) {
+        ArrayList<String> days = days();
         if (isInfoValid()) {
-            Course value = new Course(course, id, sTime, eTime, required.isSelected());
+            Course value = new Course(course, id, sTime, eTime, required.isSelected(), days);
             courseMap.put(id, value);
             System.out.println("Successfully added" + ".................................");
         } else {
             System.out.println("Unsuccessful" + ".................................");
+        }
+        for (String w : days) {
+            System.out.println(w);
         }
     }
 
@@ -177,6 +181,16 @@ public class ControlPaneController implements Initializable {
                 || wed.isSelected() || thur.isSelected()
                 || fri.isSelected() || sat.isSelected()
                 || sun.isSelected();
+    }
+
+    private ArrayList<String> days() {
+        ArrayList<String> days = new ArrayList<>();
+        for (JFXCheckBox a : chb) {
+            if (a.isSelected()) {
+                days.add(a.getText());
+            }
+        }
+        return days;
     }
 
 }
