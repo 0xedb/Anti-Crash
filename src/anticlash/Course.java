@@ -1,6 +1,7 @@
 package anticlash;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,9 +14,9 @@ public class Course {
     private final LocalTime startTime;
     private final LocalTime endTime;
     private final boolean required;
-    private final String[] days;
+    private final ArrayList<String> days;
 
-    public Course(String courseTitle, String courseId, LocalTime startTime, LocalTime endTime, boolean required, String[] days) {
+    public Course(String courseTitle, String courseId, LocalTime startTime, LocalTime endTime, boolean required, ArrayList<String> days) {
         this.courseTitle = courseTitle;
         this.courseId = courseId;
         this.startTime = startTime;
@@ -44,7 +45,7 @@ public class Course {
         return required;
     }
 
-    public String[] getDays() {
+    public ArrayList<String> getDays() {
         return days;
     }
 
