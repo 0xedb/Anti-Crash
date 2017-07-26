@@ -16,7 +16,8 @@ public class Course {
     private final boolean required;
     private final ArrayList<String> days;
 
-    public Course(String courseTitle, String courseId, LocalTime startTime, LocalTime endTime, boolean required, ArrayList<String> days) {
+    public Course(String courseTitle, String courseId, LocalTime startTime,
+            LocalTime endTime, boolean required, ArrayList<String> days) {
         this.courseTitle = courseTitle;
         this.courseId = courseId;
         this.startTime = startTime;
@@ -47,6 +48,12 @@ public class Course {
 
     public ArrayList<String> getDays() {
         return days;
+    }
+
+    @Override
+    public String toString() {
+        return getCourseId() + "\n" + getCourseTitle() + "\n"
+                + getStartTime() + " || " + getEndTime();
     }
 
 }
