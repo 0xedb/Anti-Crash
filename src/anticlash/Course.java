@@ -52,8 +52,13 @@ public class Course {
 
     @Override
     public String toString() {
+        String days = "";
+        for (String a : getDays()) {
+            days += " ⋆ " + a;
+        }
+        days += " ⋆ ";
         return getCourseId() + "\n" + getCourseTitle() + "\n"
-                + getStartTime() + " || " + getEndTime();
+                + getStartTime() + " || " + getEndTime() + "\t\t\t" + days;
     }
 
 }
