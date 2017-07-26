@@ -14,7 +14,12 @@
    <children>
       <AnchorPane layoutX="390.0" layoutY="-2.0" prefHeight="755.0" prefWidth="890.0">
          <children>
-            <JFXListView fx:id="lv" cellHorizontalMargin="4.0" editable="true" layoutX="37.0" layoutY="29.0" prefHeight="755.0" prefWidth="890.0" style="-fx-background-color: #515151;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <JFXListView fx:id="lv" cellHorizontalMargin="4.0" editable="true" layoutX="37.0" layoutY="56.0" prefHeight="705.0" prefWidth="890.0" style="-fx-background-color: #515151;" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
+            <JFXButton fx:id="remove" buttonType="RAISED" layoutX="731.0" layoutY="10.0" onAction="#delete" ripplerFill="#05ab5d" style="-fx-background-color: #B60027;" text="Remove" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="-71.0" prefHeight="755.0" prefWidth="461.0" style="-fx-background-radius: 12px; -fx-background-color: #00201C;">

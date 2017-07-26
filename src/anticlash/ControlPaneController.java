@@ -80,6 +80,8 @@ public class ControlPaneController implements Initializable {
     private JFXButton clash;
     @FXML
     private JFXListView<Course> lv;
+    @FXML
+    private JFXButton remove;
 
     /**
      * Initializes the controller class.
@@ -248,6 +250,10 @@ public class ControlPaneController implements Initializable {
     
     @FXML
     private void clash(ActionEvent event) {
+    }
+    
+    @FXML
+    private void delete(ActionEvent event) {
     }
     
 }
