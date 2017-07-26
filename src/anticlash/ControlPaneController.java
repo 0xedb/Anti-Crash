@@ -14,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -59,8 +58,6 @@ public class ControlPaneController implements Initializable {
     private JFXTextField courseTitle;
     @FXML
     private JFXToggleButton required;
-    @FXML
-    private GridPane grid;
 
     String course, id;
     LocalTime sTime, eTime;
