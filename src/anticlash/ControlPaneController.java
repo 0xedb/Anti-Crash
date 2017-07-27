@@ -27,7 +27,7 @@ import javafx.util.Callback;
  * @author bruno
  */
 public class ControlPaneController implements Initializable {
-    
+
     @FXML
     private JFXCheckBox daily;
     @FXML
@@ -48,7 +48,7 @@ public class ControlPaneController implements Initializable {
     private JFXCheckBox sat;
     @FXML
     private JFXCheckBox sun;
-    
+
     ArrayList<JFXCheckBox> chb = new ArrayList<>();
     @FXML
     private JFXTimePicker startTime;
@@ -58,16 +58,16 @@ public class ControlPaneController implements Initializable {
     private JFXButton add;
     @FXML
     private JFXTextField courseID;
-    
+
     private HashMap<String, Course> courseMap = new HashMap<>();
     @FXML
     private JFXTextField courseTitle;
     @FXML
     private JFXToggleButton required;
-    
+
     String course, id;
     LocalTime sTime, eTime;
-    
+
     ArrayList<Course> mondayList = new ArrayList<>();
     ArrayList<Course> tuesdayList = new ArrayList<>();
     ArrayList<Course> wednesdayList = new ArrayList<>();
@@ -95,7 +95,7 @@ public class ControlPaneController implements Initializable {
         chb.add(fri);
         chb.add(sat);
         chb.add(sun);
-        
+
         courseID.setTooltip(new Tooltip("Each course MUST have a UNIQUE ID"));
 
         //*************************************************** 
@@ -105,9 +105,9 @@ public class ControlPaneController implements Initializable {
                 return new CourseCell();
             }
         });
-        
+
     }
-    
+
     @FXML
     private void selectAll(ActionEvent event) {
         if (weekday.isSelected() || weekend.isSelected()) {
@@ -121,7 +121,7 @@ public class ControlPaneController implements Initializable {
             uncheckAll();
         }
     }
-    
+
     @FXML
     private void selectWeekday(ActionEvent event) {
         if (daily.isSelected() || weekend.isSelected()) {
@@ -139,7 +139,7 @@ public class ControlPaneController implements Initializable {
             sun.setSelected(false);
         }
     }
-    
+
     @FXML
     private void selectWeekend(ActionEvent event) {
         if (daily.isSelected() || weekday.isSelected()) {
@@ -154,9 +154,9 @@ public class ControlPaneController implements Initializable {
         } else {
             uncheckAll();
         }
-        
+
     }
-    
+
     @FXML
     private void add(ActionEvent event) {
         ArrayList<String> days = days();
@@ -169,45 +169,45 @@ public class ControlPaneController implements Initializable {
             System.out.println("................" + "Successfully added" + "................");
         }
     }
-    
+
     private void checkeAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(true);
         }
     }
-    
+
     private void uncheckAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(false);
         }
     }
-    
+
     private boolean isInfoValid() {
         return isCourseValid() && isTimeValid() && isDayValid();
     }
-    
+
     private boolean isCourseValid() {
         id = courseID.getText().trim();
         course = courseTitle.getText().trim();
         return course.length() > 0
                 && id.length() > 0
                 && (courseMap == null || !courseMap.containsKey(id));
-        
+
     }
-    
+
     private boolean isTimeValid() {
         sTime = startTime.getValue();
         eTime = endTime.getValue();
         return ((sTime != null) && (eTime != null)) && sTime.isBefore(eTime);
     }
-    
+
     private boolean isDayValid() {
         return mon.isSelected() || tue.isSelected()
                 || wed.isSelected() || thur.isSelected()
                 || fri.isSelected() || sat.isSelected()
                 || sun.isSelected();
     }
-    
+
     private ArrayList<String> days() {
         ArrayList<String> days = new ArrayList<>();
         for (JFXCheckBox a : chb) {
@@ -217,7 +217,7 @@ public class ControlPaneController implements Initializable {
         }
         return days;
     }
-    
+
     private void putCourse(Course subject, ArrayList<String> array) {
         for (String w : array) {
             switch (w) {
@@ -247,13 +247,13 @@ public class ControlPaneController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     private void clash(ActionEvent event) {
     }
-    
+
     @FXML
     private void delete(ActionEvent event) {
     }
-    
+
 }
