@@ -49,6 +49,7 @@ public class ControlPaneController implements Initializable {
 
     private ArrayList<JFXCheckBox> chb = new ArrayList<>();
     private HashMap<String, Course> courseMap = new HashMap<>();
+
     @FXML
     private JFXTimePicker startTime;
     @FXML
@@ -252,7 +253,44 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void clash(ActionEvent event) {
+        for (Course c : courseList) {
+            for (String a : c.getDays()) {
+                switch (a) {
+                    case "Mon":
+                        mondayList.add(c);
+                        break;
+                    case "Tue":
+                        tuesdayList.add(c);
+                        break;
+                    case "Wed":
+                        wednesdayList.add(c);
+                        break;
+                    case "Thur":
+                        thursdayList.add(c);
+                        break;
+                    case "Fri":
+                        fridayList.add(c);
+                        break;
+                    case "Sat":
+                        saturdayList.add(c);
+                        break;
+                    case "Sun":
+                        sundayList.add(c);
+                        break;
+                    default:
+                    // error
+                }
+            }
+        }
 
+        //Testing
+        for (Course v : fridayList) {
+            System.out.println(v);
+        }
+
+//        mondayList.clear();wednesdayList.clear();
+//        tuesdayList.clear();thursdayList.clear();
+//        fridayList.clear();saturdayList.clear();
+//        sundayList.clear();
     }
-
 }
