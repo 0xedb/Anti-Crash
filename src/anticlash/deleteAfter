@@ -1,0 +1,47 @@
+
+        for (Course c : courseList) {
+            for (String a : c.getDays()) {
+                switch (a) {
+                    case "Mon":
+                        mondayList.add(c);
+                        break;
+                    case "Tue":
+                        tuesdayList.add(c);
+                        break;
+                    case "Wed":
+                        wednesdayList.add(c);
+                        break;
+                    case "Thur":
+                        thursdayList.add(c);
+                        break;
+                    case "Fri":
+                        fridayList.add(c);
+                        break;
+                    case "Sat":
+                        saturdayList.add(c);
+                        break;
+                    case "Sun":
+                        sundayList.add(c);
+                        break;
+                    default:
+                        // error
+                        break;
+                }
+            }
+
+
+
+
+
+
+
+        
+        }
+
+        //Testing
+//        for (Course v : fridayList) {
+//            System.out.println(v);
+//        }
+        for (Course vv : mondayList) {
+            System.out.println(vv.getCourseTitle() + "\t" + vv.getCourseId());
+        }
