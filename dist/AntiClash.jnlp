@@ -8,8 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="AntiClash.jar" size="2856127" download="eager" />
-    <jar href="lib/jfoenix.jar" size="2350676" download="eager" />
+    <jar href="AntiClash.jar" size="2856649" download="eager" />
+    <jar href="lib/jfoenix-1.5.0.jar" size="2382550" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="AntiClash" >
     <param name="requiredFXVersion" value="8.0+"/>

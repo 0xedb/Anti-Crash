@@ -16,10 +16,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
-import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -98,11 +96,14 @@ public class ControlPaneController implements Initializable {
 
         courseID.setTooltip(new Tooltip("Each course MUST have a UNIQUE ID"));
 
-        //*************************************************** 
-        lv.setCellFactory(new Callback<ListView<Course>, ListCell<Course>>() {
-            @Override
-            public ListCell<Course> call(ListView<Course> param) {
-                return new CourseCell();
+        lv.setCellFactory((ListView<Course> param) -> new CourseCell());
+
+        //test
+        courseTitle.textProperty().addListener((a, b, c) -> {
+            if (b.equals("fuck") || c.equals("fuck")) {
+                courseTitle.setStyle("-fx-background-color:red;");
+            } else {
+                courseTitle.setStyle("-fx-background-color: #00201C;");
             }
         });
 
@@ -166,6 +167,8 @@ public class ControlPaneController implements Initializable {
             putCourse(value, days);
             courseList.add(value);
             lv.setItems(courseList);
+
+            //////////////////for the console 
             System.out.println("................" + "Successfully added" + "................");
         }
     }
@@ -254,6 +257,8 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void delete(ActionEvent event) {
+        Course selected = lv.getSelectionModel().getSelectedItem();
+        courseMap.remove(selected.getCourseId());
     }
 
 }
