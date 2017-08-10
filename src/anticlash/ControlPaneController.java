@@ -98,15 +98,6 @@ public class ControlPaneController implements Initializable {
 
         lv.setCellFactory((ListView<Course> param) -> new CourseCell());
 
-        //test
-        courseTitle.textProperty().addListener((a, b, c) -> {
-            if (b.equals("fuck") || c.equals("fuck")) {
-                courseTitle.setStyle("-fx-background-color:red;");
-            } else {
-                courseTitle.setStyle("-fx-background-color: #00201C;");
-            }
-        });
-
     }
 
     @FXML
@@ -170,6 +161,9 @@ public class ControlPaneController implements Initializable {
 
             //////////////////for the console 
             System.out.println("................" + "Successfully added" + "................");
+            courseTitle.clear();
+            courseID.clear();
+
         }
     }
 
@@ -259,6 +253,8 @@ public class ControlPaneController implements Initializable {
     private void delete(ActionEvent event) {
         Course selected = lv.getSelectionModel().getSelectedItem();
         courseMap.remove(selected.getCourseId());
+        courseList.remove(selected);
+        uncheckAll();
     }
 
 }
