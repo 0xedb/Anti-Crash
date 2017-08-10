@@ -263,41 +263,9 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void clash(ActionEvent event) {
-        for (Course c : courseList) {
-            for (String a : c.getDays()) {
-                switch (a) {
-                    case "Mon":
-                        addToDayList(mondayList, c);
-                        break;
-                    case "Tue":
-                        addToDayList(tuesdayList, c);
-                        break;
-                    case "Wed":
-                        addToDayList(wednesdayList, c);
-                        break;
-                    case "Thur":
-                        addToDayList(thursdayList, c);
-                        break;
-                    case "Fri":
-                        addToDayList(fridayList, c);
-                        break;
-                    case "Sat":
-                        addToDayList(saturdayList, c);
-                        break;
-                    case "Sun":
-                        addToDayList(sundayList, c);
-                        break;
-                    default:
-                    // error
-                }
-            }
+        for (Course vv : mondayList) {
+            System.out.println(vv.getCourseTitle() + "\t" + vv.getCourseId());
         }
-
-        //Testing
-        for (Course v : fridayList) {
-            System.out.println(v);
-        }
-
     }
 
     private void addToDayList(ArrayList<Course> list, Course c) {
@@ -306,10 +274,12 @@ public class ControlPaneController implements Initializable {
             return;
         }
         Course current = list.get(0);
-        if (!c.getEndTime().isAfter(current.getStartTime())) {
+        if (!(c.getEndTime().isAfter(current.getStartTime()))) {
             list.add(0, c);
-        } else if (!c.getStartTime().isBefore(current.getStartTime())) {
+            return;
+        } else if (!(c.getStartTime().isBefore(current.getStartTime()))) {
             list.add(c);
+            return;
         } else {
             hasClashed.set(true);
             clashLedger.add(c);
