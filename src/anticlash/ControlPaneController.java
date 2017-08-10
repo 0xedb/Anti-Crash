@@ -6,25 +6,18 @@ import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import com.jfoenix.controls.JFXToggleButton;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -259,16 +252,7 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void clash(ActionEvent event) {
-        Stage f = new Stage();
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("ResultsPane.fxml"));
-        } catch (IOException ex) {
-            Logger.getLogger(ControlPaneController.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
-        f.setScene(new Scene(root));
-        f.show();
     }
 
 }
