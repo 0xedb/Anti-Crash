@@ -11,11 +11,14 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tooltip;
 
@@ -49,6 +52,7 @@ public class ControlPaneController implements Initializable {
 
     private ArrayList<JFXCheckBox> chb = new ArrayList<>();
     private HashMap<String, Course> courseMap = new HashMap<>();
+    BooleanProperty hasClashed = new SimpleBooleanProperty(false);
 
     @FXML
     private JFXTimePicker startTime;
@@ -82,6 +86,8 @@ public class ControlPaneController implements Initializable {
     @FXML
     private JFXButton remove;
 
+    ArrayList<Course> clashLedger = new ArrayList<>();
+
     /**
      * Initializes the controller class.
      */
@@ -95,6 +101,10 @@ public class ControlPaneController implements Initializable {
         chb.add(sat);
         chb.add(sun);
 
+        ////////////////////////////////////////serves no purpose maybe
+        hasClashed.addListener((a, b, c) -> {
+
+        });
         courseID.setTooltip(new Tooltip("Each course MUST have a UNIQUE ID"));
 
         lv.setCellFactory((ListView<Course> param) -> new CourseCell());
@@ -257,25 +267,25 @@ public class ControlPaneController implements Initializable {
             for (String a : c.getDays()) {
                 switch (a) {
                     case "Mon":
-                        mondayList.add(c);
+                        addToDayList(mondayList, c);
                         break;
                     case "Tue":
-                        tuesdayList.add(c);
+                        addToDayList(tuesdayList, c);
                         break;
                     case "Wed":
-                        wednesdayList.add(c);
+                        addToDayList(wednesdayList, c);
                         break;
                     case "Thur":
-                        thursdayList.add(c);
+                        addToDayList(thursdayList, c);
                         break;
                     case "Fri":
-                        fridayList.add(c);
+                        addToDayList(fridayList, c);
                         break;
                     case "Sat":
-                        saturdayList.add(c);
+                        addToDayList(saturdayList, c);
                         break;
                     case "Sun":
-                        sundayList.add(c);
+                        addToDayList(sundayList, c);
                         break;
                     default:
                     // error
@@ -288,9 +298,36 @@ public class ControlPaneController implements Initializable {
             System.out.println(v);
         }
 
+    }
+
+    private void addToDayList(ArrayList<Course> list, Course c) {
+        if (list.isEmpty()) {
+            list.add(c);
+            return;
+        }
+        Course current = list.get(0);
+        if (!c.getEndTime().isAfter(current.getStartTime())) {
+            list.add(0, c);
+        } else if (!c.getStartTime().isBefore(current.getStartTime())) {
+            list.add(c);
+        } else {
+            hasClashed.set(true);
+            clashLedger.add(c);
+
+        }
+
+        if (hasClashed.get() == true) {
+            Dialog<String> dialog = new Dialog<>();
+            dialog.setTitle("Hellllllllllllllllllo");
+            dialog.showAndWait();
+
+        }
+
+    }
+
+}
+
 //        mondayList.clear();wednesdayList.clear();
 //        tuesdayList.clear();thursdayList.clear();
 //        fridayList.clear();saturdayList.clear();
 //        sundayList.clear();
-    }
-}
