@@ -50,6 +50,14 @@ public class Course {
         return days;
     }
 
+    public String yesNo() {
+        if (isRequired()) {
+            return "Yes";
+        } else {
+            return "No";
+        }
+    }
+
     @Override
     public String toString() {
         String days = "";
@@ -58,7 +66,8 @@ public class Course {
         }
         days += " ⋆ ";
         return getCourseId() + "\n" + getCourseTitle() + "\n"
-                + getStartTime() + " || " + getEndTime() + "\t\t\t" + days;
+                + getStartTime() + " || " + getEndTime() + "\t\t\t" + days
+                + "\nRequired: " + yesNo();
     }
 
 }
