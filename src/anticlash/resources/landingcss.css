@@ -6,5 +6,5 @@
 #pbg{
     -fx-background-image: url("pattern.png");
     -fx-background-repeat: no-repeat;
-    -fx-background-size: stretch;
+    -fx-background-size: auto; 
 }

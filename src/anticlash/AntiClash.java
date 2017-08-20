@@ -18,7 +18,7 @@ public class AntiClash extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
 
         Scene scene = new Scene(root);
-        stage.initStyle(StageStyle.UNIFIED);
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();

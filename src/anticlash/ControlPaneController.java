@@ -81,10 +81,7 @@ public class ControlPaneController implements Initializable {
     private ObservableList<Course> courseList = FXCollections.observableArrayList();
     @FXML
     private JFXButton clash;
-    @FXML
     private JFXListView<Course> lv;
-    @FXML
-    private JFXButton remove;
 
     ArrayList<Course> clashLedger = new ArrayList<>();
 
@@ -253,7 +250,6 @@ public class ControlPaneController implements Initializable {
         }
     }
 
-    @FXML
     private void delete(ActionEvent event) {
         Course selected = lv.getSelectionModel().getSelectedItem();
         courseMap.remove(selected.getCourseId());
