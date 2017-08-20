@@ -39,6 +39,8 @@ public class LandingPageController implements Initializable {
         rotateTransition1.setCycleCount(2);
         rotateTransition.setAutoReverse(true);
         rotateTransition1.setAutoReverse(true);
+        rotateTransition.setRate(1.2);
+        rotateTransition1.setRate(1.2);
         rotateTransition.play();
         rotateTransition.setOnFinished((event) -> rotateTransition1.play());
         rotateTransition1.setOnFinished((event) -> next());
