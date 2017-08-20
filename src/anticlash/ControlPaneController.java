@@ -27,11 +27,8 @@ import javafx.scene.control.Dialog;
  */
 public class ControlPaneController implements Initializable {
 
-    @FXML
     private JFXCheckBox daily;
-    @FXML
     private JFXCheckBox weekday;
-    @FXML
     private JFXCheckBox weekend;
     @FXML
     private JFXCheckBox mon;
@@ -99,50 +96,22 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void selectAll(ActionEvent event) {
-        if (weekday.isSelected() || weekend.isSelected()) {
-            weekday.setSelected(false);
-            weekend.setSelected(false);
-        }
-        if (daily.isSelected()) {
-            checkeAll();
-            daily.setSelected(false);
-        } else {
-            uncheckAll();
-        }
+        checkeAll();
     }
 
     @FXML
     private void selectWeekday(ActionEvent event) {
-        if (daily.isSelected() || weekend.isSelected()) {
-            daily.setSelected(false);
-            weekend.setSelected(false);
-        }
-        if (weekday.isSelected()) {
-            checkeAll();
-            weekday.setSelected(false);
-            sat.setSelected(false);
-            sun.setSelected(false);
-        } else {
-            uncheckAll();
-            sat.setSelected(false);
-            sun.setSelected(false);
-        }
+        checkeAll();
+        sat.setSelected(false);
+        sun.setSelected(false);
+
     }
 
     @FXML
     private void selectWeekend(ActionEvent event) {
-        if (daily.isSelected() || weekday.isSelected()) {
-            daily.setSelected(false);
-            weekday.setSelected(false);
-        }
-        if (weekend.isSelected()) {
-            uncheckAll();
-            weekend.setSelected(false);
-            sat.setSelected(true);
-            sun.setSelected(true);
-        } else {
-            uncheckAll();
-        }
+        uncheckAll();
+        sat.setSelected(true);
+        sun.setSelected(true);
 
     }
 
