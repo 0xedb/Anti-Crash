@@ -12,23 +12,16 @@ import javafx.stage.StageStyle;
  * @author bruno
  */
 public class AntiClash extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
-        
-        Scene scene = new Scene(root);        
+
+        Scene scene = new Scene(root);
         stage.initStyle(StageStyle.UNIFIED);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
-    }
-    
 }
