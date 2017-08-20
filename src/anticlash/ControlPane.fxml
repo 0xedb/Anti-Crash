@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -14,26 +15,26 @@
    <children>
       <AnchorPane id="pbg" prefHeight="730.0" prefWidth="311.0" style="-fx-background-color: #00201C; -fx-background-radius: 12px;" stylesheets="@resources/landingcss.css">
          <children>
-            <JFXTextField fx:id="courseTitle" focusColor="WHITE" labelFloat="true" layoutX="43.0" layoutY="92.0" prefHeight="48.0" prefWidth="230.0" promptText="Course Title" style="-fx-text-fill: white;" unFocusColor="#3ec0fc">
+            <JFXTextField fx:id="courseTitle" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="92.0" prefHeight="48.0" prefWidth="230.0" promptText="Course Title" style="-fx-text-fill: white;" unFocusColor="#3ec0fc">
                <font>
                   <Font size="17.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="courseID" focusColor="WHITE" labelFloat="true" layoutX="43.0" layoutY="171.0" prefHeight="48.0" prefWidth="230.0" promptText="Course ID" style="-fx-text-fill: white;" unFocusColor="#3ec0fc">
+            <JFXTextField fx:id="courseID" focusColor="WHITE" labelFloat="true" layoutX="37.0" layoutY="171.0" prefHeight="48.0" prefWidth="230.0" promptText="Course ID" style="-fx-text-fill: white;" unFocusColor="#3ec0fc">
                <font>
                   <Font size="17.0" />
                </font>
             </JFXTextField>
-            <JFXTimePicker fx:id="startTime" defaultColor="#1c448a" layoutX="43.0" layoutY="245.0" prefHeight="39.0" prefWidth="230.0" promptText="Start Time" style="-fx-background-color: white; -fx-text-fill: white;" />
-            <JFXTimePicker fx:id="endTime" defaultColor="#b21e1e" layoutX="43.0" layoutY="303.0" prefHeight="39.0" prefWidth="230.0" promptText="End Time" style="-fx-background-color: white; -fx-text-fill: white;" />
-            <JFXCheckBox fx:id="mon" layoutX="40.0" layoutY="361.0" style="-fx-text-fill: white;" text="Mon" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="tue" layoutX="110.0" layoutY="361.0" style="-fx-text-fill: white;" text="Tue" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="wed" layoutX="175.0" layoutY="361.0" style="-fx-text-fill: white;" text="Wed" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="thur" layoutX="31.0" layoutY="392.0" style="-fx-text-fill: white;" text="Thur" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="fri" layoutX="102.0" layoutY="392.0" style="-fx-text-fill: white;" text="Fri" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="sat" layoutX="167.0" layoutY="392.0" style="-fx-text-fill: white;" text="Sat" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="sun" layoutX="225.0" layoutY="392.0" style="-fx-text-fill: white;" text="Sun" unCheckedColor="WHITE" />
-            <JFXToggleButton fx:id="required" layoutX="77.0" layoutY="408.0" prefHeight="30.0" prefWidth="163.0" text="Required" textFill="WHITE" toggleColor="#09e16a" unToggleColor="WHITE" unToggleLineColor="#a19999">
+            <JFXTimePicker fx:id="startTime" defaultColor="#1c448a" layoutX="37.0" layoutY="245.0" prefHeight="39.0" prefWidth="230.0" promptText="Start Time" style="-fx-background-color: white; -fx-text-fill: white;" />
+            <JFXTimePicker fx:id="endTime" defaultColor="#b21e1e" layoutX="37.0" layoutY="303.0" prefHeight="39.0" prefWidth="230.0" promptText="End Time" style="-fx-background-color: white; -fx-text-fill: white;" />
+            <JFXCheckBox fx:id="mon" layoutX="37.0" layoutY="365.0" style="-fx-text-fill: white;" text="Mon" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="tue" layoutX="107.0" layoutY="365.0" style="-fx-text-fill: white;" text="Tue" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="wed" layoutX="172.0" layoutY="365.0" style="-fx-text-fill: white;" text="Wed" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="thur" layoutX="28.0" layoutY="404.0" style="-fx-text-fill: white;" text="Thur" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="fri" layoutX="99.0" layoutY="404.0" style="-fx-text-fill: white;" text="Fri" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="sat" layoutX="164.0" layoutY="404.0" style="-fx-text-fill: white;" text="Sat" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="sun" layoutX="222.0" layoutY="404.0" style="-fx-text-fill: white;" text="Sun" unCheckedColor="WHITE" />
+            <JFXToggleButton fx:id="required" layoutX="70.0" layoutY="420.0" prefHeight="30.0" prefWidth="163.0" text="Required" textFill="WHITE" toggleColor="#09e16a" unToggleColor="WHITE" unToggleLineColor="#a19999">
                <font>
                   <Font size="18.0" />
                </font>
@@ -66,11 +67,15 @@
             </JFXButton>
             <Separator layoutX="19.0" layoutY="480.0" prefHeight="5.0" prefWidth="265.0" />
          </children></AnchorPane>
-      <JFXListView layoutX="323.0" layoutY="15.0" prefHeight="703.0" prefWidth="124.0" />
-      <JFXListView layoutX="995.0" layoutY="14.0" prefHeight="703.0" prefWidth="124.0" />
-      <JFXListView layoutX="862.0" layoutY="14.0" prefHeight="703.0" prefWidth="124.0" />
-      <JFXListView layoutX="727.0" layoutY="14.0" prefHeight="703.0" prefWidth="124.0" />
-      <JFXListView layoutX="589.0" layoutY="15.0" prefHeight="703.0" prefWidth="124.0" />
-      <JFXListView layoutX="457.0" layoutY="15.0" prefHeight="703.0" prefWidth="124.0" />
+      <ScrollPane blendMode="MULTIPLY" layoutX="319.0" layoutY="14.0" style="-fx-background-color: #0000;" vbarPolicy="NEVER">
+         <content>
+            <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
+         </content>
+      </ScrollPane>
+      <JFXButton layoutX="320.0" layoutY="659.0" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
