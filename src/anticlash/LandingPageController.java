@@ -31,13 +31,17 @@ public class LandingPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        RotateTransition rotateTransition = new RotateTransition(Duration.millis(3000), clockImage);
+        RotateTransition rotateTransition = new RotateTransition(Duration.millis(1500), clockImage);
+        RotateTransition rotateTransition1 = new RotateTransition(Duration.millis(1500), clockImage);
         rotateTransition.setByAngle(15);
-        rotateTransition.setCycleCount(4);
+        rotateTransition1.setByAngle(-15);
+        rotateTransition.setCycleCount(2);
+        rotateTransition1.setCycleCount(2);
         rotateTransition.setAutoReverse(true);
+        rotateTransition1.setAutoReverse(true);
         rotateTransition.play();
-        rotateTransition.setOnFinished((event) -> next());
-
+        rotateTransition.setOnFinished((event) -> rotateTransition1.play());
+        rotateTransition1.setOnFinished((event) -> next());
     }
 
     private void next() {
