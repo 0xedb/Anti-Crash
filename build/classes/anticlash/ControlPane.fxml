@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXScrollPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import com.jfoenix.controls.JFXToggleButton?>
@@ -30,11 +31,11 @@
             <JFXCheckBox fx:id="mon" layoutX="37.0" layoutY="365.0" style="-fx-text-fill: white;" text="Mon" unCheckedColor="WHITE" />
             <JFXCheckBox fx:id="tue" layoutX="107.0" layoutY="365.0" style="-fx-text-fill: white;" text="Tue" unCheckedColor="WHITE" />
             <JFXCheckBox fx:id="wed" layoutX="172.0" layoutY="365.0" style="-fx-text-fill: white;" text="Wed" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="thur" layoutX="28.0" layoutY="396.0" style="-fx-text-fill: white;" text="Thur" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="fri" layoutX="99.0" layoutY="396.0" style="-fx-text-fill: white;" text="Fri" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="sat" layoutX="164.0" layoutY="396.0" style="-fx-text-fill: white;" text="Sat" unCheckedColor="WHITE" />
-            <JFXCheckBox fx:id="sun" layoutX="222.0" layoutY="396.0" style="-fx-text-fill: white;" text="Sun" unCheckedColor="WHITE" />
-            <JFXToggleButton fx:id="required" layoutX="70.0" layoutY="412.0" prefHeight="30.0" prefWidth="163.0" text="Required" textFill="WHITE" toggleColor="#09e16a" unToggleColor="WHITE" unToggleLineColor="#a19999">
+            <JFXCheckBox fx:id="thur" layoutX="28.0" layoutY="404.0" style="-fx-text-fill: white;" text="Thur" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="fri" layoutX="99.0" layoutY="404.0" style="-fx-text-fill: white;" text="Fri" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="sat" layoutX="164.0" layoutY="404.0" style="-fx-text-fill: white;" text="Sat" unCheckedColor="WHITE" />
+            <JFXCheckBox fx:id="sun" layoutX="222.0" layoutY="404.0" style="-fx-text-fill: white;" text="Sun" unCheckedColor="WHITE" />
+            <JFXToggleButton fx:id="required" layoutX="70.0" layoutY="420.0" prefHeight="30.0" prefWidth="163.0" text="Required" textFill="WHITE" toggleColor="#09e16a" unToggleColor="WHITE" unToggleLineColor="#a19999">
                <font>
                   <Font size="18.0" />
                </font>
@@ -67,7 +68,7 @@
             </JFXButton>
             <Separator layoutX="19.0" layoutY="480.0" prefHeight="5.0" prefWidth="265.0" />
          </children></AnchorPane>
-      <ScrollPane layoutX="319.0" layoutY="14.0" style="-fx-background-color: #0000;" vbarPolicy="NEVER">
+      <ScrollPane id="scroll" fx:id="scroll" focusTraversable="false" layoutX="319.0" layoutY="14.0" vbarPolicy="NEVER">
          <content>
             <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
          </content>
@@ -77,5 +78,6 @@
             <Font size="18.0" />
          </font>
       </JFXButton>
+      <JFXScrollPane layoutX="540.0" layoutY="143.0" style="-fx-background-color: #0000;" />
    </children>
 </AnchorPane>

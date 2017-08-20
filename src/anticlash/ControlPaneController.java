@@ -2,6 +2,7 @@ package anticlash;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import com.jfoenix.controls.JFXToggleButton;
@@ -11,6 +12,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ScrollPane;
 
 /**
  * FXML Controller class
@@ -47,10 +49,9 @@ public class ControlPaneController implements Initializable {
     private JFXToggleButton required;
     @FXML
     private JFXButton clash;
-
-    private JFXCheckBox daily;
-    private JFXCheckBox weekday;
-    private JFXCheckBox weekend;
+    private ScrollPane scroll;
+    @FXML
+    private JFXListView<?> monList;
 
     /**
      * Initializes the controller class.

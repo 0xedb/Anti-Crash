@@ -8,3 +8,8 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: auto; 
 }
+
+
+.jfx-scroll-pane * {
+    -fx-background-color:  transparent;
+}
