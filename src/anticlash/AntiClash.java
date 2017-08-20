@@ -20,7 +20,7 @@ public class AntiClash extends Application {
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setResizable(false);
-        stage.setScene(scene);
+        stage.setScene(root.getScene());
         stage.show();
     }
 

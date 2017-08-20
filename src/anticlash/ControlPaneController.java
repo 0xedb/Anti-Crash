@@ -2,7 +2,6 @@ package anticlash;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import com.jfoenix.controls.JFXToggleButton;
@@ -19,8 +18,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Dialog;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Tooltip;
 
 /**
  * FXML Controller class
@@ -81,7 +78,6 @@ public class ControlPaneController implements Initializable {
     private ObservableList<Course> courseList = FXCollections.observableArrayList();
     @FXML
     private JFXButton clash;
-    private JFXListView<Course> lv;
 
     ArrayList<Course> clashLedger = new ArrayList<>();
 
@@ -97,14 +93,6 @@ public class ControlPaneController implements Initializable {
         chb.add(fri);
         chb.add(sat);
         chb.add(sun);
-
-        ////////////////////////////////////////serves no purpose maybe
-        hasClashed.addListener((a, b, c) -> {
-
-        });
-        courseID.setTooltip(new Tooltip("Each course MUST have a UNIQUE ID"));
-
-        lv.setCellFactory((ListView<Course> param) -> new CourseCell());
 
     }
 
@@ -165,7 +153,6 @@ public class ControlPaneController implements Initializable {
             courseMap.put(id, value);
             putCourse(value, days);
             courseList.add(value);
-            lv.setItems(courseList);
             courseTitle.clear();
             courseID.clear();
 
@@ -251,9 +238,6 @@ public class ControlPaneController implements Initializable {
     }
 
     private void delete(ActionEvent event) {
-        Course selected = lv.getSelectionModel().getSelectedItem();
-        courseMap.remove(selected.getCourseId());
-        courseList.remove(selected);
         uncheckAll();
     }
 

@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
 import javafx.animation.RotateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -57,16 +56,19 @@ public class LandingPageController implements Initializable {
     }
 
     private void next() {
-        Parent secondPage = null;
         try {
-            secondPage = FXMLLoader.load(getClass().getResource("ControlPane.fxml"));
+            System.out.println("Got here!!!");
+            Parent secondPage = FXMLLoader.load(getClass().getResource("ControlPane.fxml"));
+            System.out.println(secondPage);
+            Scene scene = new Scene(secondPage);
+            Window here = sidePane.getParent().getScene().getWindow();
+            Stage window = (Stage) here;
+            window.setScene(scene);
         } catch (IOException ex) {
+            ex.printStackTrace();
         } // error
-        Scene scene = new Scene(secondPage);
-        ActionEvent event = new ActionEvent();
-        Window here = sidePane.getParent().getScene().getWindow();
-        Stage window = (Stage) here;
-        window.setScene(scene);
+        //
+
     }
 
 }

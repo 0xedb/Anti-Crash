@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="bgs" prefHeight="725.0" prefWidth="1225.0" style="-fx-background-color: #04280D99;" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.ControlPaneController">
+<AnchorPane id="bgs" prefHeight="725.0" prefWidth="1225.0" style="-fx-background-color: #04280D99; -fx-background-radius: 12px;" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.ControlPaneController">
    <children>
-      <AnchorPane id="pbg" prefHeight="728.0" prefWidth="375.0" style="-fx-background-color: #00201C;">
+      <AnchorPane id="pbg" prefHeight="728.0" prefWidth="375.0" style="-fx-background-color: #00201C; -fx-background-radius: 12px;" stylesheets="@resources/landingcss.css">
          <children>
             <JFXTextField fx:id="courseTitle" focusColor="WHITE" labelFloat="true" layoutX="81.0" layoutY="109.0" prefHeight="48.0" prefWidth="230.0" promptText="Course Title" style="-fx-text-fill: white;" unFocusColor="#3ec0fc">
                <font>
@@ -39,7 +39,7 @@
             <JFXCheckBox fx:id="daily" layoutX="61.0" layoutY="546.0" onAction="#selectAll" style="-fx-text-fill: white;" text="Daily" unCheckedColor="WHITE" />
             <JFXCheckBox fx:id="weekday" layoutX="140.0" layoutY="546.0" onAction="#selectWeekday" style="-fx-text-fill: white;" text="Weekday" unCheckedColor="WHITE" />
             <JFXCheckBox fx:id="weekend" layoutX="238.0" layoutY="546.0" onAction="#selectWeekend" style="-fx-text-fill: white;" text="Weekend" unCheckedColor="WHITE" />
-            <JFXButton fx:id="add" buttonType="RAISED" layoutX="120.0" layoutY="592.0" onAction="#add" prefHeight="39.0" prefWidth="124.0" ripplerFill="#1389bf" style="-fx-background-color: #C38400;" text="Add ⊹" textFill="WHITE">
+            <JFXButton fx:id="add" buttonType="RAISED" defaultButton="true" layoutX="120.0" layoutY="592.0" onAction="#add" prefHeight="39.0" prefWidth="124.0" ripplerFill="#1389bf" style="-fx-background-color: #C38400;" text="Add ⊹" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
