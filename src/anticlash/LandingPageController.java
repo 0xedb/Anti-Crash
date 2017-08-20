@@ -1,19 +1,20 @@
- 
 package anticlash;
 
-import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.util.Duration;
 
 /**
  *
@@ -26,18 +27,29 @@ public class LandingPageController implements Initializable {
     @FXML
     private AnchorPane background;
     @FXML
-    private JFXButton next;
+    private ImageView clockImage;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        RotateTransition rotateTransition = new RotateTransition(Duration.millis(3000), clockImage);
+        rotateTransition.setByAngle(15);
+        rotateTransition.setCycleCount(4);
+        rotateTransition.setAutoReverse(true);
+        rotateTransition.play();
+        rotateTransition.setOnFinished((event) -> next());
+
     }
 
-    @FXML
-    private void next(ActionEvent event) throws IOException {
-        Parent secondPage = FXMLLoader.load(getClass().getResource("ControlPane.fxml"));
+    private void next() {
+        Parent secondPage = null;
+        try {
+            secondPage = FXMLLoader.load(getClass().getResource("ControlPane.fxml"));
+        } catch (IOException ex) {
+        } // error
         Scene scene = new Scene(secondPage);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        ActionEvent event = new ActionEvent();
+        Window here = sidePane.getParent().getScene().getWindow();
+        Stage window = (Stage) here;
         window.setScene(scene);
     }
 

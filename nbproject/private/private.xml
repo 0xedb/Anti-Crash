@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>jar:file:/home/bruno/NetBeansProjects/AntiClash/dist/AntiClash.jar!/META-INF/MANIFEST.MF</file>
             <file>file:/home/bruno/NetBeansProjects/AntiClash/src/anticlash/AntiClash.java</file>
+            <file>file:/home/bruno/NetBeansProjects/AntiClash/src/anticlash/ControlPaneController.java</file>
+            <file>file:/home/bruno/NetBeansProjects/AntiClash/src/anticlash/deleteAfter</file>
+            <file>file:/home/bruno/NetBeansProjects/AntiClash/src/anticlash/Course.java</file>
         </group>
     </open-files>
 </project-private>
