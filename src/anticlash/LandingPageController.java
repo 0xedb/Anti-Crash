@@ -45,8 +45,8 @@ public class LandingPageController implements Initializable {
         fadeTransition.setCycleCount(3);
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
-        rotateTransition.setByAngle(15);
-        rotateTransition1.setByAngle(-15);
+        rotateTransition.setByAngle(30);
+        rotateTransition1.setByAngle(-30);
         rotateTransition.setCycleCount(2);
         rotateTransition1.setCycleCount(2);
         rotateTransition.setAutoReverse(true);
@@ -54,22 +54,24 @@ public class LandingPageController implements Initializable {
         rotateTransition.setRate(1.2);
         rotateTransition1.setRate(1.2);
         rotateTransition.play();
-        rotateTransition.setOnFinished((event) -> rotateTransition1.play());
-        rotateTransition1.setOnFinished((event) -> next());
+        rotateTransition.setOnFinished((e) -> rotateTransition1.play());
+        rotateTransition1.setOnFinished((e) -> next());
     }
 
     private void next() {
         try {
             Parent secondPage = FXMLLoader.load(getClass().getResource("ControlPane.fxml"));
+            Window here = sidePane.getParent().getScene().getWindow();
 
             Scene scene = new Scene(secondPage);
             scene.setFill(Color.TRANSPARENT);
-            Window here = sidePane.getParent().getScene().getWindow();
             Stage window = (Stage) here;
+
             secondPage.setOnMouseDragged((event) -> {
                 window.setX(event.getSceneX());
                 window.setY(event.getSceneY());
             });
+
             window.setScene(scene);
         } catch (IOException ex) {
         } // error        

@@ -18,11 +18,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tooltip;
-import javafx.scene.layout.TilePane;
 
 /**
  * FXML Controller class
@@ -59,12 +56,6 @@ public class ControlPaneController implements Initializable {
     private JFXToggleButton required;
     @FXML
     private JFXButton clash;
-    @FXML
-    private JFXButton more;
-    @FXML
-    private TilePane tp;
-    @FXML
-    private ScrollPane sp;
 
     private JFXCheckBox daily;
     private JFXCheckBox weekday;
@@ -108,7 +99,6 @@ public class ControlPaneController implements Initializable {
         chb.add(sat);
         chb.add(sun);
 
-        sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 
     @FXML
@@ -265,15 +255,6 @@ public class ControlPaneController implements Initializable {
     @FXML
     private void exit(ActionEvent event) {
         Platform.exit();
-    }
-
-    static int i = 0;
-
-    @FXML
-    private void more(ActionEvent event) {
-        Button butt = new Button(Integer.toString(++i * 100));
-        butt.setRotate(-90);
-        tp.getChildren().add(butt);
     }
 
 }
