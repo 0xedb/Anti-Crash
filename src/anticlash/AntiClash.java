@@ -1,4 +1,3 @@
- 
 package anticlash;
 
 import javafx.application.Application;
@@ -6,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -17,7 +17,8 @@ public class AntiClash extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
         
-        Scene scene = new Scene(root); 
+        Scene scene = new Scene(root);        
+        stage.initStyle(StageStyle.UNIFIED);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
