@@ -10,6 +10,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
@@ -273,6 +274,11 @@ public class ControlPaneController implements Initializable {
 
         }
 
+    }
+
+    @FXML
+    private void exit(ActionEvent event) {
+        Platform.exit();
     }
 
 }

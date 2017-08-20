@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="bgs" prefHeight="725.0" prefWidth="1225.0" style="-fx-background-color: #04280D99; -fx-background-radius: 12px;" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.ControlPaneController">
+<AnchorPane id="bgs" prefHeight="728.0" prefWidth="1162.0" style="-fx-background-color: #04280D99;" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.ControlPaneController">
    <children>
-      <AnchorPane id="pbg" prefHeight="728.0" prefWidth="375.0" style="-fx-background-color: #00201C; -fx-background-radius: 12px;" stylesheets="@resources/landingcss.css">
+      <AnchorPane id="pbg" layoutX="-14.0" prefHeight="728.0" prefWidth="389.0" style="-fx-background-color: #00201C; -fx-background-radius: 12px;" stylesheets="@resources/landingcss.css">
          <children>
             <JFXTextField fx:id="courseTitle" focusColor="WHITE" labelFloat="true" layoutX="81.0" layoutY="109.0" prefHeight="48.0" prefWidth="230.0" promptText="Course Title" style="-fx-text-fill: white;" unFocusColor="#3ec0fc">
                <font>
@@ -49,6 +49,7 @@
                   <Font size="20.0" />
                </font>
             </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="313.0" onAction="#exit" ripplerFill="WHITE" style="-fx-font-weight: bold; -fx-font-size: 30px; -fx-text-fill: #FF5040;" text="×" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
