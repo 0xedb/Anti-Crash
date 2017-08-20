@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Tooltip;
 
 /**
  * FXML Controller class
@@ -84,6 +85,14 @@ public class ControlPaneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        mon.setTooltip(new Tooltip("Monday"));
+        tue.setTooltip(new Tooltip("Tuesday"));
+        wed.setTooltip(new Tooltip("Wednesday"));
+        thur.setTooltip(new Tooltip("Thursday"));
+        fri.setTooltip(new Tooltip("Friday"));
+        sat.setTooltip(new Tooltip("Saturday"));
+        sun.setTooltip(new Tooltip("Sunday"));
+
         chb.add(mon);
         chb.add(tue);
         chb.add(wed);

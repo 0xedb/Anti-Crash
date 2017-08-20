@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="AntiClash.jar" size="3046836" download="eager" />
+    <jar href="AntiClash.jar" size="3047015" download="eager" />
     <jar href="lib/jfoenix-1.5.0.jar" size="2382550" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="AntiClash" >
