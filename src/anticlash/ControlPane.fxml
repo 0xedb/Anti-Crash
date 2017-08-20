@@ -22,7 +22,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-71.0" prefHeight="755.0" prefWidth="461.0" style="-fx-background-radius: 12px; -fx-background-color: #00201C;">
+      <AnchorPane id="pbg" layoutX="-71.0" prefHeight="755.0" prefWidth="461.0" style="-fx-background-color: #00201C;">
          <children>
             <JFXTextField fx:id="courseTitle" focusColor="WHITE" labelFloat="true" layoutX="143.0" layoutY="102.0" prefHeight="48.0" prefWidth="230.0" promptText="Course Title" style="-fx-text-fill: white;" unFocusColor="#3ec0fc">
                <font>
