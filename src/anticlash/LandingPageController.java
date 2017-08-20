@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -60,9 +61,15 @@ public class LandingPageController implements Initializable {
     private void next() {
         try {
             Parent secondPage = FXMLLoader.load(getClass().getResource("ControlPane.fxml"));
+
             Scene scene = new Scene(secondPage);
+            scene.setFill(Color.TRANSPARENT);
             Window here = sidePane.getParent().getScene().getWindow();
             Stage window = (Stage) here;
+            secondPage.setOnMouseDragged((event) -> {
+                window.setX(event.getSceneX());
+                window.setY(event.getSceneY());
+            });
             window.setScene(scene);
         } catch (IOException ex) {
         } // error        
