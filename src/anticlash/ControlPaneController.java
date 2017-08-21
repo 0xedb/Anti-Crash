@@ -247,19 +247,6 @@ public class ControlPaneController implements Initializable {
         sun.setSelected(true);
     }
 
-    @FXML
-    private void monExpand(ActionEvent event) {
-        if (!monList.isExpanded()) {
-            monList.setExpanded(true);
-            monList.depthProperty().set(1);
-        } else {
-            monList.setExpanded(false);
-            monList.depthProperty().set(0);
-
-        }
-
-    }
-
     private void checkeAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(true);
@@ -284,73 +271,72 @@ public class ControlPaneController implements Initializable {
     }
 
     @FXML
-    private void tueExpand(ActionEvent event) {
-        if (!tueList.isExpanded()) {
-            tueList.setExpanded(true);
-            tueList.depthProperty().set(1);
+    private void monExpand(ActionEvent event) {
+        if (monList.isExpanded()) {
+            monList.setExpanded(false);
         } else {
+            monList.setExpanded(true);
+
+        }
+
+    }
+
+    @FXML
+    private void tueExpand(ActionEvent event) {
+        if (tueList.isExpanded()) {
             tueList.setExpanded(false);
-            tueList.depthProperty().set(0);
+        } else {
+            tueList.setExpanded(true);
 
         }
     }
 
     @FXML
     private void wedExpand(ActionEvent event) {
-        if (!wedList.isExpanded()) {
-            wedList.setExpanded(true);
-            wedList.depthProperty().set(1);
-        } else {
+        if (wedList.isExpanded()) {
             wedList.setExpanded(false);
-            wedList.depthProperty().set(0);
+        } else {
+            wedList.setExpanded(true);
 
         }
     }
 
     @FXML
     private void thurExpand(ActionEvent event) {
-        if (!thurList.isExpanded()) {
-            thurList.setExpanded(true);
-            thurList.depthProperty().set(1);
-        } else {
+        if (thurList.isExpanded()) {
             thurList.setExpanded(false);
-            thurList.depthProperty().set(0);
+        } else {
+            thurList.setExpanded(true);
 
         }
     }
 
     @FXML
     private void friExpand(ActionEvent event) {
-        if (!friList.isExpanded()) {
-            friList.setExpanded(true);
-            friList.depthProperty().set(1);
-        } else {
+        if (friList.isExpanded()) {
             friList.setExpanded(false);
-            friList.depthProperty().set(0);
+        } else {
+            friList.setExpanded(true);
 
         }
     }
 
     @FXML
     private void satExpand(ActionEvent event) {
-        if (!satList.isExpanded()) {
-            satList.setExpanded(true);
-            satList.depthProperty().set(1);
-        } else {
+        if (satList.isExpanded()) {
             satList.setExpanded(false);
-            satList.depthProperty().set(0);
+        } else {
+            satList.setExpanded(true);
 
         }
     }
 
     @FXML
     private void sunExpand(ActionEvent event) {
-        if (!sunList.isExpanded()) {
-            sunList.setExpanded(true);
-            sunList.depthProperty().set(1);
-        } else {
+        if (sunList.isExpanded()) {
             sunList.setExpanded(false);
-            sunList.depthProperty().set(0);
+        } else {
+            sunList.setExpanded(true);
 
         }
     }
