@@ -19,48 +19,48 @@ public class Course {
     private BooleanProperty required;
     private ObservableList<String> days;
 
-    public Course(StringProperty courseTitle, StringProperty courseId, ObjectProperty<LocalTime> startTime, ObjectProperty<LocalTime> endTime, BooleanProperty required, ObservableList<String> days) {
-        this.courseTitle = courseTitle;
-        this.courseId = courseId;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.required = required;
+    public Course(String courseTitle, String courseId, LocalTime startTime, LocalTime endTime, boolean required, ObservableList<String> days) {
+        this.courseTitle.set(courseTitle);
+        this.courseId.set(courseId);
+        this.startTime.set(startTime);
+        this.endTime.set(endTime);
+        this.required.set(required);
         this.days = days;
     }
 
-    public final void setCourseTitle(String value) {
+    public void setCourseTitle(String value) {
         courseTitle.set(value);
     }
 
-    public final String getCourseTitle() {
+    public String getCourseTitle() {
         return courseTitle.get();
     }
 
-    public final StringProperty courseTitleProperty() {
+    public StringProperty courseTitleProperty() {
         return courseTitle;
     }
 
-    public final void setCourseId(String value) {
+    public void setCourseId(String value) {
         courseId.set(value);
     }
 
-    public final String getCourseId() {
+    public String getCourseId() {
         return courseId.get();
     }
 
-    public final StringProperty courseIdProperty() {
+    public StringProperty courseIdProperty() {
         return courseId;
     }
 
-    public final void setRequired(Boolean value) {
+    public void setRequired(Boolean value) {
         required.set(value);
     }
 
-    public final Boolean getRequired() {
+    public Boolean getRequired() {
         return required.get();
     }
 
-    public final BooleanProperty requiredProperty() {
+    public BooleanProperty requiredProperty() {
         return required;
     }
 
