@@ -64,4 +64,9 @@ public class Course {
         return required;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s %n %s", getCourseId(), getCourseTitle());
+    }
+
 }
