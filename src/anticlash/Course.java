@@ -1,7 +1,10 @@
 package anticlash;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -9,15 +12,14 @@ import java.util.ArrayList;
  */
 public class Course {
 
-    private final String courseTitle;
-    private final String courseId;
-    private final LocalTime startTime;
-    private final LocalTime endTime;
-    private final boolean required;
-    private final ArrayList<String> days;
+    private StringProperty courseTitle;
+    private StringProperty courseId;
+    private ObjectProperty<LocalTime> startTime;
+    private ObjectProperty<LocalTime> endTime;
+    private BooleanProperty required;
+    private ObservableList<String> days;
 
-    public Course(String courseTitle, String courseId, LocalTime startTime,
-            LocalTime endTime, boolean required, ArrayList<String> days) {
+    public Course(StringProperty courseTitle, StringProperty courseId, ObjectProperty<LocalTime> startTime, ObjectProperty<LocalTime> endTime, BooleanProperty required, ObservableList<String> days) {
         this.courseTitle = courseTitle;
         this.courseId = courseId;
         this.startTime = startTime;
@@ -26,48 +28,40 @@ public class Course {
         this.days = days;
     }
 
-    public String getCourseTitle() {
+    public final void setCourseTitle(String value) {
+        courseTitle.set(value);
+    }
+
+    public final String getCourseTitle() {
+        return courseTitle.get();
+    }
+
+    public final StringProperty courseTitleProperty() {
         return courseTitle;
     }
 
-    public String getCourseId() {
+    public final void setCourseId(String value) {
+        courseId.set(value);
+    }
+
+    public final String getCourseId() {
+        return courseId.get();
+    }
+
+    public final StringProperty courseIdProperty() {
         return courseId;
     }
 
-    public LocalTime getStartTime() {
-        return startTime;
+    public final void setRequired(Boolean value) {
+        required.set(value);
     }
 
-    public LocalTime getEndTime() {
-        return endTime;
+    public final Boolean getRequired() {
+        return required.get();
     }
 
-    public boolean isRequired() {
+    public final BooleanProperty requiredProperty() {
         return required;
-    }
-
-    public ArrayList<String> getDays() {
-        return days;
-    }
-
-    public String yesNo() {
-        if (isRequired()) {
-            return "Yes";
-        } else {
-            return "No";
-        }
-    }
-
-    @Override
-    public String toString() {
-        String days = "";
-        for (String a : getDays()) {
-            days += " ⋆ " + a;
-        }
-        days += " ⋆ ";
-        return getCourseId() + "\n" + getCourseTitle() + "\n"
-                + getStartTime() + " || " + getEndTime() + "\t\t\t" + days
-                + "\nRequired: " + yesNo();
     }
 
 }
