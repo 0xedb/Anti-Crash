@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.ScrollPane;
@@ -263,9 +264,10 @@ public class ControlPaneController implements Initializable {
         Label butt = new Label(lb);
         butt.setRotate(-180);
         butt.setAlignment(Pos.CENTER);
-        butt.setMaxWidth(140);
-        butt.setMaxWidth(140);
+        butt.setMaxWidth(100);
+        butt.setMaxWidth(100);
         butt.setTextAlignment(TextAlignment.CENTER);
+        butt.setContentDisplay(ContentDisplay.CENTER);
         butt.setTextOverrun(OverrunStyle.ELLIPSIS);
         return butt;
     }
