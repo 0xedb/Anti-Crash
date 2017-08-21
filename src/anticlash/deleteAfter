@@ -1,3 +1,7 @@
+### TODO 
+-- remove landingbg.jpg
+
+
 
         for (Course c : courseList) {
             for (String a : c.getDays()) {
