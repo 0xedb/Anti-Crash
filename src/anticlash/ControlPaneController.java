@@ -137,7 +137,40 @@ public class ControlPaneController implements Initializable {
                 || fri.isSelected() || sat.isSelected()
                 || sun.isSelected());
 
+        String cs = courseTitle.getText().trim();
+        String cid = courseID.getText().trim();
+
+        //////////////
         System.out.println(isCourseValid.get());
+
+        if (!courseMap.isEmpty() && courseMap.containsKey(cid)) {
+            courseID.setUnFocusColor(Color.RED);
+            return;
+        }
+
+        if (isCourseValid.get()) {
+
+            ObservableList<String> days = FXCollections.observableArrayList();
+
+            // get all selected days and add to list
+            for (JFXCheckBox a : chb) {
+                if (a.isSelected()) {
+                    days.add(a.getText());
+                }
+            }
+
+            // create course
+            Course course = new Course(cs, cid, sTime, eTime, required.isSelected(), days);
+
+            // add to coursemap
+            courseMap.put(cid, course);
+
+            ////////////
+            System.out.println("YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY!!!!!");
+        } ///////////////
+        else {
+            System.out.println("Noooooooooooooooooooooooooooooooooooooooooooooo!!!!!");
+        }
     }
 
     @FXML
