@@ -192,24 +192,31 @@ public class ControlPaneController implements Initializable {
             // add to respective day listview
             if (course.getDays().contains("Mon")) {
                 monList.getItems().add(makeLabel(lbText));
+                monList.setExpanded(true);
             }
             if (course.getDays().contains("Tue")) {
                 tueList.getItems().add(makeLabel(lbText));
+                tueList.setExpanded(true);
             }
             if (course.getDays().contains("Wed")) {
                 wedList.getItems().add(makeLabel(lbText));
+                wedList.setExpanded(true);
             }
             if (course.getDays().contains("Thur")) {
                 thurList.getItems().add(makeLabel(lbText));
+                thurList.setExpanded(true);
             }
             if (course.getDays().contains("Fri")) {
                 friList.getItems().add(makeLabel(lbText));
+                friList.setExpanded(true);
             }
             if (course.getDays().contains("Sat")) {
                 satList.getItems().add(makeLabel(lbText));
+                satList.setExpanded(true);
             }
             if (course.getDays().contains("Sun")) {
                 sunList.getItems().add(makeLabel(lbText));
+                sunList.setExpanded(true);
             }
         } ///////////////
         else {
