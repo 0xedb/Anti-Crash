@@ -2,9 +2,7 @@ package anticlash;
 
 import java.time.LocalTime;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -17,8 +15,8 @@ public class Course {
 
     private StringProperty courseTitle;
     private StringProperty courseId;
-    private ObjectProperty<LocalTime> startTime;
-    private ObjectProperty<LocalTime> endTime;
+    private StringProperty startTime;
+    private StringProperty endTime;
     private BooleanProperty required;
     private ObservableList<String> days;
 
@@ -26,8 +24,8 @@ public class Course {
             LocalTime endTime, boolean required, ObservableList<String> days) {
         this.courseTitle = new SimpleStringProperty(courseTitle);
         this.courseId = new SimpleStringProperty(courseId);
-        this.startTime = new SimpleObjectProperty<>(startTime);
-        this.endTime = new SimpleObjectProperty<>(endTime);
+        this.startTime = new SimpleStringProperty(startTime.toString());
+        this.endTime = new SimpleStringProperty(endTime.toString());
         this.required = new SimpleBooleanProperty(required);
         this.days = days;
     }
@@ -68,17 +66,42 @@ public class Course {
         return required;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s%n %s", getCourseId(), getCourseTitle());
-    }
-
     public ObservableList<String> getDays() {
         return days;
     }
 
     public void setDays(ObservableList<String> days) {
         this.days = days;
+    }
+
+    public void setStartTime(String value) {
+        startTime.set(value);
+    }
+
+    public String getStartTime() {
+        return startTime.get();
+    }
+
+    public StringProperty startTimeProperty() {
+        return startTime;
+    }
+
+    public void setEndTime(String value) {
+        endTime.set(value);
+    }
+
+    public String getEndTime() {
+        return endTime.get();
+    }
+
+    public StringProperty endTimeProperty() {
+        return endTime;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s%n %s%n%s ⇾ %s", getCourseId(),
+                getCourseTitle(), getStartTime(), getEndTime());
     }
 
 }
