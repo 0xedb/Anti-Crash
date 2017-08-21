@@ -263,8 +263,8 @@ public class ControlPaneController implements Initializable {
         Label butt = new Label(lb);
         butt.setRotate(-180);
         butt.setAlignment(Pos.CENTER);
-        butt.setMaxWidth(110);
-        butt.setMaxHeight(40);
+        butt.setMaxWidth(140);
+        butt.setMaxWidth(140);
         butt.setTextAlignment(TextAlignment.CENTER);
         butt.setTextOverrun(OverrunStyle.ELLIPSIS);
         return butt;
