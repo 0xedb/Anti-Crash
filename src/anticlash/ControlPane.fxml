@@ -74,31 +74,12 @@
             </font>
         </JFXButton>    
         <JFXListView fx:id="monList"  layoutX="320.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        
-    
-         
         <JFXListView fx:id="tueList" layoutX="451.0" layoutY="14.0" prefHeight="631.0"  rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-           
-           
-        
         <JFXListView fx:id="wedList" layoutX="582.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
- 
-        
-      
-         
         <JFXListView fx:id="thurList" layoutX="713.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-          
-       
-        
-         
         <JFXListView fx:id="friList" layoutX="844.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <!--Change OOOOO-->
-        
         <JFXListView fx:id="satList" layoutX="975.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-         
-        
         <JFXListView fx:id="sunList" layoutX="1106.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-           
         <JFXButton buttonType="RAISED" layoutX="451.0" layoutY="659.0" onAction="#tueExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
