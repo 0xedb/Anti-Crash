@@ -19,7 +19,8 @@ public class Course {
     private BooleanProperty required;
     private ObservableList<String> days;
 
-    public Course(String courseTitle, String courseId, LocalTime startTime, LocalTime endTime, boolean required, ObservableList<String> days) {
+    public Course(String courseTitle, String courseId, LocalTime startTime,
+            LocalTime endTime, boolean required, ObservableList<String> days) {
         this.courseTitle.set(courseTitle);
         this.courseId.set(courseId);
         this.startTime.set(startTime);
