@@ -79,60 +79,60 @@
       </JFXScrollPane>
       <JFXScrollPane layoutX="451.0" layoutY="14.0" prefHeight="631.0" prefWidth="124.0" style="-fx-background-color: #0000;">
          <children>
-            <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
+            <JFXListView fx:id="tueList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
          </children>
       </JFXScrollPane>
       <JFXScrollPane layoutX="582.0" layoutY="14.0" prefHeight="631.0" prefWidth="124.0" style="-fx-background-color: #0000;">
          <children>
-            <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
+            <JFXListView fx:id="wedList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
          </children>
       </JFXScrollPane>
       <JFXScrollPane layoutX="713.0" layoutY="14.0" prefHeight="631.0" prefWidth="124.0" style="-fx-background-color: #0000;">
          <children>
-            <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
+            <JFXListView fx:id="thurList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
          </children>
       </JFXScrollPane>
       <JFXScrollPane layoutX="844.0" layoutY="14.0" prefHeight="631.0" prefWidth="124.0" style="-fx-background-color: #0000;">
          <children>
-            <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
+            <JFXListView fx:id="friList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
          </children>
       </JFXScrollPane>
       <JFXScrollPane layoutX="975.0" layoutY="14.0" prefHeight="631.0" prefWidth="124.0" style="-fx-background-color: #0000;">
          <children>
-            <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
+            <JFXListView fx:id="satList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
          </children>
       </JFXScrollPane>
       <JFXScrollPane layoutX="1106.0" layoutY="14.0" prefHeight="631.0" prefWidth="124.0" style="-fx-background-color: #0000;">
          <children>
-            <JFXListView cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" showTooltip="true" style="-fx-background-color: #0000;" />
+            <JFXListView fx:id="sunList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
          </children>
       </JFXScrollPane>
-      <JFXButton buttonType="RAISED" layoutX="451.0" layoutY="659.0" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="451.0" layoutY="659.0" onAction="#tueExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="582.0" layoutY="659.0" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="582.0" layoutY="659.0" onAction="#wedExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="713.0" layoutY="659.0" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="713.0" layoutY="659.0" onAction="#thurExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="844.0" layoutY="659.0" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="844.0" layoutY="659.0" onAction="#friExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="975.0" layoutY="659.0" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="975.0" layoutY="659.0" onAction="#satExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="1106.0" layoutY="659.0" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1106.0" layoutY="659.0" onAction="#sunExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
