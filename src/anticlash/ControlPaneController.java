@@ -280,6 +280,78 @@ public class ControlPaneController implements Initializable {
         butt.setStyle("-fx-font-weight: bold;");
         return butt;
     }
+
+    @FXML
+    private void tueExpand(ActionEvent event) {
+        if (!tueList.isExpanded()) {
+            tueList.setExpanded(true);
+            tueList.depthProperty().set(1);
+        } else {
+            tueList.setExpanded(false);
+            tueList.depthProperty().set(0);
+
+        }
+    }
+
+    @FXML
+    private void wedExpand(ActionEvent event) {
+        if (!wedList.isExpanded()) {
+            wedList.setExpanded(true);
+            wedList.depthProperty().set(1);
+        } else {
+            wedList.setExpanded(false);
+            wedList.depthProperty().set(0);
+
+        }
+    }
+
+    @FXML
+    private void thurExpand(ActionEvent event) {
+        if (!thurList.isExpanded()) {
+            thurList.setExpanded(true);
+            thurList.depthProperty().set(1);
+        } else {
+            thurList.setExpanded(false);
+            thurList.depthProperty().set(0);
+
+        }
+    }
+
+    @FXML
+    private void friExpand(ActionEvent event) {
+        if (!friList.isExpanded()) {
+            friList.setExpanded(true);
+            friList.depthProperty().set(1);
+        } else {
+            friList.setExpanded(false);
+            friList.depthProperty().set(0);
+
+        }
+    }
+
+    @FXML
+    private void satExpand(ActionEvent event) {
+        if (!satList.isExpanded()) {
+            satList.setExpanded(true);
+            satList.depthProperty().set(1);
+        } else {
+            satList.setExpanded(false);
+            satList.depthProperty().set(0);
+
+        }
+    }
+
+    @FXML
+    private void sunExpand(ActionEvent event) {
+        if (!sunList.isExpanded()) {
+            sunList.setExpanded(true);
+            sunList.depthProperty().set(1);
+        } else {
+            sunList.setExpanded(false);
+            sunList.depthProperty().set(0);
+
+        }
+    }
 }
 
 //
