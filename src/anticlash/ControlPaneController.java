@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,7 +26,7 @@ import javafx.scene.paint.Color;
  * @author bruno
  */
 public class ControlPaneController implements Initializable {
-
+    
     @FXML
     private JFXCheckBox mon;
     @FXML
@@ -57,11 +58,13 @@ public class ControlPaneController implements Initializable {
     private ScrollPane scroll;
     @FXML
     private JFXListView<Label> monList;
-
-    private final ObservableList<JFXCheckBox> chb = FXCollections
-            .observableArrayList(); //stores all checkboxes
     @FXML
     private AnchorPane sidePane;
+    
+    private final ObservableList<JFXCheckBox> chb = FXCollections
+            .observableArrayList(); //stores all checkboxes
+    private ObservableMap<String, Course> courseMap = FXCollections
+            .observableHashMap();  // will store all courses
 
     /**
      * Initializes the controller class.
@@ -84,43 +87,54 @@ public class ControlPaneController implements Initializable {
             } else {
                 courseTitle.setUnFocusColor(Color.RED);
             }
-
+            
         });
-    }
 
+        // validate courseID
+        courseID.textProperty().addListener((observable, oldV, newV) -> {
+            if (newV.trim().length() > 0 && (courseMap == null
+                    || !courseMap.containsKey(newV.trim()))) {
+                courseID.setUnFocusColor(Color.GREENYELLOW);
+            } else {
+                courseID.setUnFocusColor(Color.RED);
+            }            
+        });
+        
+    }
+    
     @FXML
     private void exit(ActionEvent event) {
         Platform.exit();
     }
-
+    
     @FXML
     private void add(ActionEvent event) {
-
+        
     }
-
+    
     @FXML
     private void clash(ActionEvent event) {
     }
-
+    
     @FXML
     private void selectAll(ActionEvent event) {
         checkeAll();
     }
-
+    
     @FXML
     private void selectWeekday(ActionEvent event) {
         checkeAll();
         sat.setSelected(false);
         sun.setSelected(false);
     }
-
+    
     @FXML
     private void selectWeekend(ActionEvent event) {
         uncheckAll();
         sat.setSelected(true);
         sun.setSelected(true);
     }
-
+    
     @FXML
     private void monExpand(ActionEvent event) {
         if (!monList.isExpanded()) {
@@ -129,17 +143,17 @@ public class ControlPaneController implements Initializable {
         } else {
             monList.setExpanded(false);
             monList.depthProperty().set(0);
-
+            
         }
-
+        
     }
-
+    
     private void checkeAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(true);
         }
     }
-
+    
     private void uncheckAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(false);
