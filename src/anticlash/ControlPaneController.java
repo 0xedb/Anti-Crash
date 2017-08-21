@@ -19,11 +19,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
@@ -269,15 +267,12 @@ public class ControlPaneController implements Initializable {
 
     public Label makeLabel(String lb) {
         Label butt = new Label(lb);
-        butt.setGraphic(new ImageView(getClass().getResource("resources/course.png").toString()));
         butt.setRotate(-180);
         butt.setAlignment(Pos.CENTER);
         butt.setMaxWidth(110);
         butt.setMaxHeight(40);
         butt.setTextAlignment(TextAlignment.CENTER);
         butt.setTextOverrun(OverrunStyle.ELLIPSIS);
-        butt.setContentDisplay(ContentDisplay.LEFT);
-        butt.setStyle("-fx-font-weight: bold;");
         return butt;
     }
 
@@ -353,7 +348,3 @@ public class ControlPaneController implements Initializable {
         }
     }
 }
-
-//
-
-//        monList.getItems().add(new Label("Bruno"));
