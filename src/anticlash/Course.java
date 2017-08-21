@@ -3,6 +3,9 @@ package anticlash;
 import java.time.LocalTime;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
@@ -21,11 +24,11 @@ public class Course {
 
     public Course(String courseTitle, String courseId, LocalTime startTime,
             LocalTime endTime, boolean required, ObservableList<String> days) {
-        this.courseTitle.set(courseTitle);
-        this.courseId.set(courseId);
-        this.startTime.set(startTime);
-        this.endTime.set(endTime);
-        this.required.set(required);
+        this.courseTitle = new SimpleStringProperty(courseTitle);
+        this.courseId = new SimpleStringProperty(courseId);
+        this.startTime = new SimpleObjectProperty<>(startTime);
+        this.endTime = new SimpleObjectProperty<>(endTime);
+        this.required = new SimpleBooleanProperty(required);
         this.days = days;
     }
 
