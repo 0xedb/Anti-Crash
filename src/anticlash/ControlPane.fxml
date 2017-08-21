@@ -2,16 +2,16 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
-<?import com.jfoenix.controls.JFXListView?> 
+<?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="bgs" prefHeight="730.0" prefWidth="1239.0" style="-fx-background-color: #04280D99;" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.ControlPaneController">
+<AnchorPane id="bgs" prefHeight="730.0" prefWidth="1278.0" style="-fx-background-color: #04280D99;" stylesheets="@resources/landingcss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="anticlash.ControlPaneController">
     <children>
         <AnchorPane id="pbg" fx:id="sidePane" prefHeight="730.0" prefWidth="311.0" style="-fx-background-color: #00201C; -fx-background-radius: 12px;" stylesheets="@resources/landingcss.css">
             <children>
@@ -68,44 +68,48 @@
                 <Separator layoutX="19.0" layoutY="480.0" prefHeight="5.0" prefWidth="265.0" />
             </children>
         </AnchorPane>
-        <JFXButton buttonType="RAISED" layoutX="320.0" layoutY="659.0" onAction="#monExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </JFXButton>    
-        <JFXListView fx:id="monList"  layoutX="320.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <JFXListView fx:id="tueList" layoutX="451.0" layoutY="14.0" prefHeight="631.0"  rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <JFXListView fx:id="wedList" layoutX="582.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <JFXListView fx:id="thurList" layoutX="713.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <JFXListView fx:id="friList" layoutX="844.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <JFXListView fx:id="satList" layoutX="975.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <JFXListView fx:id="sunList" layoutX="1106.0" layoutY="14.0" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
-        <JFXButton buttonType="RAISED" layoutX="451.0" layoutY="659.0" onAction="#tueExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="18.0" />
-            </font>
-        </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="582.0" layoutY="659.0" onAction="#wedExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+      <ButtonBar layoutX="311.0" layoutY="14.0">
+         <buttons>    
+              <JFXListView fx:id="monList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
+              <JFXListView fx:id="tueList" prefHeight="631.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
+              <JFXListView fx:id="wedList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
+              <JFXListView fx:id="thurList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
+              <JFXListView fx:id="friList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
+              <JFXListView fx:id="satList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
+              <JFXListView fx:id="sunList" cellVerticalMargin="0.0" prefHeight="631.0" prefWidth="124.0" rotate="-180.0" showTooltip="true" style="-fx-background-color: #0000;" verticalGap="10.0" />
+         </buttons>
+      </ButtonBar>
+        <JFXButton buttonType="RAISED" layoutX="330.0" layoutY="659.0" onAction="#monExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="713.0" layoutY="659.0" onAction="#thurExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="464.0" layoutY="659.0" onAction="#tueExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="844.0" layoutY="659.0" onAction="#friExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="598.0" layoutY="659.0" onAction="#wedExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="975.0" layoutY="659.0" onAction="#satExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="733.0" layoutY="659.0" onAction="#thurExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="1106.0" layoutY="659.0" onAction="#sunExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+        <JFXButton buttonType="RAISED" layoutX="868.0" layoutY="659.0" onAction="#friExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="1002.0" layoutY="659.0" onAction="#satExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="1135.0" layoutY="659.0" onAction="#sunExpand" prefHeight="5.0" prefWidth="124.0" text="⊢⊣" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

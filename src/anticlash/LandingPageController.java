@@ -58,6 +58,7 @@ public class LandingPageController implements Initializable {
         rotateTransition1.setOnFinished((e) -> next());
     }
 
+    // open control window
     private void next() {
         try {
             Parent secondPage = FXMLLoader.load(getClass().getResource("ControlPane.fxml"));
