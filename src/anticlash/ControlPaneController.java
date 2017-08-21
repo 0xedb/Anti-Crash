@@ -16,6 +16,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -58,6 +60,8 @@ public class ControlPaneController implements Initializable {
 
     private final ObservableList<JFXCheckBox> chb = FXCollections
             .observableArrayList(); //stores all checkboxes
+    @FXML
+    private AnchorPane sidePane;
 
     /**
      * Initializes the controller class.
@@ -72,6 +76,16 @@ public class ControlPaneController implements Initializable {
         chb.add(fri);
         chb.add(sat);
         chb.add(sun);
+
+        // validate coursetitle  
+        courseTitle.textProperty().addListener((observable, oldV, newV) -> {
+            if (newV.trim().length() > 0) {
+                courseTitle.setUnFocusColor(Color.GREENYELLOW);
+            } else {
+                courseTitle.setUnFocusColor(Color.RED);
+            }
+
+        });
     }
 
     @FXML
@@ -81,6 +95,7 @@ public class ControlPaneController implements Initializable {
 
     @FXML
     private void add(ActionEvent event) {
+
     }
 
     @FXML

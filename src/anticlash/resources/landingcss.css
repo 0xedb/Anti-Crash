@@ -13,3 +13,23 @@
 .jfx-scroll-pane * {
     -fx-background-color:  transparent;
 }
+
+.jfx-list-cell:selected {
+    -fx-background-color: #B6D130;
+}
+
+.jfx-list-cell {
+    -fx-background-color: wheat;
+}
+
+.jfx-list-cell:hover {
+    -fx-background-color: #1BD79C;
+}
+
+.jfx-list-view {
+    -fx-background-radius: 10;
+    -fx-vertical-gap: 10;
+    -fx-cell-vertical-margin: 2;
+    -fx-background-insets: 0;
+    -fx-pref-width: 200;
+}
