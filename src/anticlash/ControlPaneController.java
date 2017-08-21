@@ -18,10 +18,15 @@ import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 
 /**
  * FXML Controller class
@@ -75,6 +80,18 @@ public class ControlPaneController implements Initializable {
     private static BooleanProperty isCourseTitleValid = new SimpleBooleanProperty(false);
     private static BooleanProperty isCourseIdValid = new SimpleBooleanProperty(false);
     private static BooleanProperty isCourseValid = new SimpleBooleanProperty(false);
+    @FXML
+    private JFXListView<Label> tueList;
+    @FXML
+    private JFXListView<Label> wedList;
+    @FXML
+    private JFXListView<Label> thurList;
+    @FXML
+    private JFXListView<Label> friList;
+    @FXML
+    private JFXListView<Label> satList;
+    @FXML
+    private JFXListView<Label> sunList;
 
     /**
      * Initializes the controller class.
@@ -165,8 +182,37 @@ public class ControlPaneController implements Initializable {
             // add to coursemap
             courseMap.put(cid, course);
 
-            ////////////
-            System.out.println("YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY!!!!!");
+            // clear fields
+            courseTitle.clear();
+            courseID.clear();
+            uncheckAll();
+            required.setSelected(false);
+
+            // make course label for listview 
+            String lbText = course.toString();
+
+            // add to respective day listview
+            if (course.getDays().contains("Mon")) {
+                monList.getItems().add(makeLabel(lbText));
+            }
+            if (course.getDays().contains("Tue")) {
+                tueList.getItems().add(makeLabel(lbText));
+            }
+            if (course.getDays().contains("Wed")) {
+                wedList.getItems().add(makeLabel(lbText));
+            }
+            if (course.getDays().contains("Thur")) {
+                thurList.getItems().add(makeLabel(lbText));
+            }
+            if (course.getDays().contains("Fri")) {
+                friList.getItems().add(makeLabel(lbText));
+            }
+            if (course.getDays().contains("Sat")) {
+                satList.getItems().add(makeLabel(lbText));
+            }
+            if (course.getDays().contains("Sun")) {
+                sunList.getItems().add(makeLabel(lbText));
+            }
         } ///////////////
         else {
             System.out.println("Noooooooooooooooooooooooooooooooooooooooooooooo!!!!!");
@@ -220,11 +266,22 @@ public class ControlPaneController implements Initializable {
             a.setSelected(false);
         }
     }
+
+    public Label makeLabel(String lb) {
+        Label butt = new Label(lb);
+        butt.setGraphic(new ImageView(getClass().getResource("resources/course.png").toString()));
+        butt.setRotate(-180);
+        butt.setAlignment(Pos.CENTER);
+        butt.setMaxWidth(110);
+        butt.setMaxHeight(40);
+        butt.setTextAlignment(TextAlignment.CENTER);
+        butt.setTextOverrun(OverrunStyle.ELLIPSIS);
+        butt.setContentDisplay(ContentDisplay.LEFT);
+        butt.setStyle("-fx-font-weight: bold;");
+        return butt;
+    }
 }
 
 //
-//Label butt = new Label("Kofi");
-//        butt.setRotate(-180);
-//        butt.setStyle("-fx-font-weight: bold;");
-//        monList.getItems().add(butt);
+
 //        monList.getItems().add(new Label("Bruno"));
