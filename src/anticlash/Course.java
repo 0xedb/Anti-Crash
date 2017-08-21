@@ -70,7 +70,15 @@ public class Course {
 
     @Override
     public String toString() {
-        return String.format("%s %n %s", getCourseId(), getCourseTitle());
+        return String.format("%s%n %s", getCourseId(), getCourseTitle());
+    }
+
+    public ObservableList<String> getDays() {
+        return days;
+    }
+
+    public void setDays(ObservableList<String> days) {
+        this.days = days;
     }
 
 }
