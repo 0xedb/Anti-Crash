@@ -7,8 +7,10 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import com.jfoenix.controls.JFXToggleButton;
 import java.net.URL;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.property.BooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
@@ -63,8 +65,11 @@ public class ControlPaneController implements Initializable {
     
     private final ObservableList<JFXCheckBox> chb = FXCollections
             .observableArrayList(); //stores all checkboxes
+    
     private ObservableMap<String, Course> courseMap = FXCollections
             .observableHashMap();  // will store all courses
+    
+    private BooleanProperty isTimeValid;
 
     /**
      * Initializes the controller class.
@@ -109,7 +114,10 @@ public class ControlPaneController implements Initializable {
     
     @FXML
     private void add(ActionEvent event) {
-        
+        // validate start & end time
+        LocalTime sTime = startTime.getValue();
+        LocalTime eTime = endTime.getValue();
+        isTimeValid.set(((sTime != null) && (eTime != null)) && sTime.isBefore(eTime));
     }
     
     @FXML
