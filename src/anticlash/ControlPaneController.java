@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXTimePicker;
 import com.jfoenix.controls.JFXToggleButton;
 import java.net.URL;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
@@ -33,7 +34,7 @@ import javafx.scene.text.TextAlignment;
  * @author bruno
  */
 public class ControlPaneController implements Initializable {
-
+    
     @FXML
     private JFXCheckBox mon;
     @FXML
@@ -67,18 +68,24 @@ public class ControlPaneController implements Initializable {
     private JFXListView<Label> monList;
     @FXML
     private AnchorPane sidePane;
-
+    
     private final ObservableList<JFXCheckBox> chb = FXCollections
             .observableArrayList(); //stores all checkboxes
 
     private ObservableMap<String, Course> courseMap = FXCollections
             .observableHashMap();  // will store all courses
 
+    // store courses for clashing to be done
+    private static ArrayList<ArrayList<Course>> tmp = new ArrayList<>(7);
+    
     private static BooleanProperty isTimeValid = new SimpleBooleanProperty(false);
     private static BooleanProperty isDayValid = new SimpleBooleanProperty(false);
     private static BooleanProperty isCourseTitleValid = new SimpleBooleanProperty(false);
     private static BooleanProperty isCourseIdValid = new SimpleBooleanProperty(false);
     private static BooleanProperty isCourseValid = new SimpleBooleanProperty(false);
+    
+    private static Course cCopy;
+    
     @FXML
     private JFXListView<Label> tueList;
     @FXML
@@ -115,7 +122,7 @@ public class ControlPaneController implements Initializable {
                 courseTitle.setUnFocusColor(Color.RED);
                 isCourseTitleValid.set(false);
             }
-
+            
         });
 
         // validate courseID
@@ -133,13 +140,22 @@ public class ControlPaneController implements Initializable {
         // validate course field
         isCourseValid.bind(isCourseIdValid.and(isTimeValid).and(isCourseTitleValid).and(isDayValid));
 
+        //////////////
+        ArrayList<Course> play = new ArrayList<>();
+        tmp.add(0, play);
+        tmp.add(1, play);
+        tmp.add(2, play);
+        tmp.add(3, play);
+        tmp.add(4, play);
+        tmp.add(5, play);
+        tmp.add(6, play);
     }
-
+    
     @FXML
     private void exit(ActionEvent event) {
         Platform.exit();
     }
-
+    
     @FXML
     private void add(ActionEvent event) {
         // validate start & end time
@@ -152,20 +168,17 @@ public class ControlPaneController implements Initializable {
                 || wed.isSelected() || thur.isSelected()
                 || fri.isSelected() || sat.isSelected()
                 || sun.isSelected());
-
+        
         String cs = courseTitle.getText().trim();
         String cid = courseID.getText().trim();
-
-        //////////////
-        System.out.println(isCourseValid.get());
-
+        
         if (!courseMap.isEmpty() && courseMap.containsKey(cid)) {
             courseID.setUnFocusColor(Color.RED);
             return;
         }
-
+        
         if (isCourseValid.get()) {
-
+            
             ObservableList<String> days = FXCollections.observableArrayList();
 
             // get all selected days and add to list
@@ -180,6 +193,7 @@ public class ControlPaneController implements Initializable {
 
             // add to coursemap
             courseMap.put(cid, course);
+            cCopy = course;
 
             // clear fields
             courseTitle.clear();
@@ -192,74 +206,81 @@ public class ControlPaneController implements Initializable {
 
             // add to respective day listview
             if (course.getDays().contains("Mon")) {
+                findClash(course, tmp.get(0));
+                tmp.get(0).add(course);
                 monList.getItems().add(makeLabel(lbText));
                 monList.setExpanded(true);
             }
             if (course.getDays().contains("Tue")) {
+                tmp.get(1).add(course);
                 tueList.getItems().add(makeLabel(lbText));
                 tueList.setExpanded(true);
+                
             }
             if (course.getDays().contains("Wed")) {
+                tmp.get(2).add(course);
                 wedList.getItems().add(makeLabel(lbText));
                 wedList.setExpanded(true);
+                
             }
             if (course.getDays().contains("Thur")) {
+                tmp.get(3).add(course);
                 thurList.getItems().add(makeLabel(lbText));
                 thurList.setExpanded(true);
+                
             }
             if (course.getDays().contains("Fri")) {
+                tmp.get(4).add(course);
                 friList.getItems().add(makeLabel(lbText));
                 friList.setExpanded(true);
+                
             }
             if (course.getDays().contains("Sat")) {
+                tmp.get(5).add(course);
                 satList.getItems().add(makeLabel(lbText));
                 satList.setExpanded(true);
+                
             }
             if (course.getDays().contains("Sun")) {
+                tmp.get(6).add(course);
                 sunList.getItems().add(makeLabel(lbText));
                 sunList.setExpanded(true);
+                
             }
-        } ///////////////
-        else {
-            System.out.println("Noooooooooooooooooooooooooooooooooooooooooooooo!!!!!");
         }
     }
-
-    @FXML
-    private void clash(ActionEvent event) {
-    }
-
+    
     @FXML
     private void selectAll(ActionEvent event) {
         checkeAll();
     }
-
+    
     @FXML
     private void selectWeekday(ActionEvent event) {
         checkeAll();
         sat.setSelected(false);
         sun.setSelected(false);
     }
-
+    
     @FXML
     private void selectWeekend(ActionEvent event) {
         uncheckAll();
         sat.setSelected(true);
         sun.setSelected(true);
     }
-
+    
     private void checkeAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(true);
         }
     }
-
+    
     private void uncheckAll() {
         for (JFXCheckBox a : chb) {
             a.setSelected(false);
         }
     }
-
+    
     public Label makeLabel(String lb) {
         Label butt = new Label(lb);
         butt.setRotate(-180);
@@ -271,75 +292,97 @@ public class ControlPaneController implements Initializable {
         butt.setTextOverrun(OverrunStyle.ELLIPSIS);
         return butt;
     }
-
+    
     @FXML
     private void monExpand(ActionEvent event) {
         if (monList.isExpanded()) {
             monList.setExpanded(false);
         } else {
             monList.setExpanded(true);
-
+            
         }
-
+        
     }
-
+    
     @FXML
     private void tueExpand(ActionEvent event) {
         if (tueList.isExpanded()) {
             tueList.setExpanded(false);
         } else {
             tueList.setExpanded(true);
-
+            
         }
     }
-
+    
     @FXML
     private void wedExpand(ActionEvent event) {
         if (wedList.isExpanded()) {
             wedList.setExpanded(false);
         } else {
             wedList.setExpanded(true);
-
+            
         }
     }
-
+    
     @FXML
     private void thurExpand(ActionEvent event) {
         if (thurList.isExpanded()) {
             thurList.setExpanded(false);
         } else {
             thurList.setExpanded(true);
-
+            
         }
     }
-
+    
     @FXML
     private void friExpand(ActionEvent event) {
         if (friList.isExpanded()) {
             friList.setExpanded(false);
         } else {
             friList.setExpanded(true);
-
+            
         }
     }
-
+    
     @FXML
     private void satExpand(ActionEvent event) {
         if (satList.isExpanded()) {
             satList.setExpanded(false);
         } else {
             satList.setExpanded(true);
-
+            
         }
     }
-
+    
     @FXML
     private void sunExpand(ActionEvent event) {
         if (sunList.isExpanded()) {
             sunList.setExpanded(false);
         } else {
             sunList.setExpanded(true);
-
+            
         }
     }
+    
+    @FXML
+    private void clash(ActionEvent event) {
+        
+    }
+    
+    public static void findClash(Course a, ArrayList<Course> list) {
+        for (Course aa : list) {
+            LocalTime s = aa.getStartTime();
+            LocalTime e = aa.getEndTime();
+            
+            if (!a.getEndTime().isAfter(s) || !a.getStartTime().isBefore(e)) {
+                // valid !!
+            } else {
+                System.out.println(String.format("Clash between %s and %s%n",
+                        a.getCourseTitle(), aa.getCourseTitle()));
+                return;
+            }
+        }
+    }
+
+//    tmp.get(2).add(course);
 }
