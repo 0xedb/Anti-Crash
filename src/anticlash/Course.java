@@ -15,8 +15,8 @@ public class Course {
 
     private StringProperty courseTitle;
     private StringProperty courseId;
-    private StringProperty startTime;
-    private StringProperty endTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
     private BooleanProperty required;
     private ObservableList<String> days;
 
@@ -24,8 +24,8 @@ public class Course {
             LocalTime endTime, boolean required, ObservableList<String> days) {
         this.courseTitle = new SimpleStringProperty(courseTitle);
         this.courseId = new SimpleStringProperty(courseId);
-        this.startTime = new SimpleStringProperty(startTime.toString());
-        this.endTime = new SimpleStringProperty(endTime.toString());
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.required = new SimpleBooleanProperty(required);
         this.days = days;
     }
@@ -74,27 +74,19 @@ public class Course {
         this.days = days;
     }
 
-    public void setStartTime(String value) {
-        startTime.set(value);
+    public void setStartTime(LocalTime value) {
+        startTime = value;
     }
 
-    public String getStartTime() {
-        return startTime.get();
-    }
-
-    public StringProperty startTimeProperty() {
+    public LocalTime getStartTime() {
         return startTime;
     }
 
-    public void setEndTime(String value) {
-        endTime.set(value);
+    public void setEndTime(LocalTime value) {
+        endTime = value;
     }
 
-    public String getEndTime() {
-        return endTime.get();
-    }
-
-    public StringProperty endTimeProperty() {
+    public LocalTime getEndTime() {
         return endTime;
     }
 
