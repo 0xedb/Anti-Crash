@@ -374,9 +374,13 @@ public class ControlPaneController implements Initializable {
         tmp.forEach((c) -> {
             findClash(c);
         });
+        if (msg == "") {
+            msg = "You're OK!";
+        }
         Alert alert = new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK);
         alert.initModality(Modality.WINDOW_MODAL);
         alert.setTitle("Clashes!");
+        alert.setHeaderText("~~~~~~~~~~~~");
         alert.showAndWait();
 
     }
@@ -387,6 +391,35 @@ public class ControlPaneController implements Initializable {
                 if (i == j) {
                     break;
                 }
+                String day = "";
+
+                switch (j) {
+                    case 0:
+                        day = "Monday";
+                        break;
+                    case 1:
+                        day = "Tuesday";
+                        break;
+                    case 2:
+                        day = "Wednesday";
+                        break;
+                    case 3:
+                        day = "Thursday";
+                        break;
+                    case 4:
+                        day = "Friday";
+                        break;
+                    case 5:
+                        day = "Saturday";
+                        break;
+                    case 6:
+                        day = "Sunday";
+                        break;
+                    default:
+                        break;
+
+                }
+
                 LocalTime start = array.get(i).getStartTime();
                 LocalTime end = array.get(i).getEndTime();
 
@@ -397,11 +430,10 @@ public class ControlPaneController implements Initializable {
                         || (!start.isBefore(end1) && end.isAfter(end1))) {
                     // correct -- no clash found
                 } else {
-                    System.out.println("Clash : \t\n" + array.get(i) + " and "
-                            + array.get(j));
-                    msg += array.get(i).getCourseTitle() + "("
-                            + array.get(i).getCourseId() + ") and " + array.get(i).getCourseTitle() + "("
-                            + array.get(i).getCourseId() + ")" + "\n";
+                    msg += day + ":\n" + array.get(i).getCourseTitle() + "("
+                            + array.get(i).getCourseId() + ") and "
+                            + array.get(j).getCourseTitle() + "("
+                            + array.get(j).getCourseId() + ")" + "\n\n";
                 }
 
             }
