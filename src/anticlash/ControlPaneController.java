@@ -90,6 +90,7 @@ public class ControlPaneController implements Initializable {
     private static Course cCopy;
 
     private static String msg = "";     // hold alert message
+    private static int index = 0;    // is used to tell day
 
     @FXML
     private JFXListView<Label> tueList;
@@ -372,20 +373,21 @@ public class ControlPaneController implements Initializable {
     private void clash(ActionEvent event) {
         ArrayList<Course> a = tmp.get(0);
         tmp.forEach((c) -> {
-            findClash(c);
+            findClash(c, index);
+            index++;
         });
         if (msg == "") {
             msg = "You're OK!";
         }
         Alert alert = new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK);
-        alert.initModality(Modality.WINDOW_MODAL);
+        alert.initModality(Modality.APPLICATION_MODAL);
         alert.setTitle("Clashes!");
         alert.setHeaderText("~~~~~~~~~~~~");
         alert.showAndWait();
 
     }
 
-    private static void findClash(ArrayList<Course> array) {
+    private static void findClash(ArrayList<Course> array, int pos) {
         for (int i = 0; i < array.size(); i++) {
             for (int j = 0; j < array.size(); j++) {
                 if (i == j) {
@@ -393,7 +395,7 @@ public class ControlPaneController implements Initializable {
                 }
                 String day = "";
 
-                switch (j) {
+                switch (pos) {
                     case 0:
                         day = "Monday";
                         break;
