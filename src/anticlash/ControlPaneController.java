@@ -20,6 +20,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.OverrunStyle;
@@ -27,6 +29,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
 
 /**
  * FXML Controller class
@@ -378,6 +381,7 @@ public class ControlPaneController implements Initializable {
                 if (i == j) {
                     break;
                 }
+                String msg = "";
                 LocalTime start = array.get(i).getStartTime();
                 LocalTime end = array.get(i).getEndTime();
 
@@ -386,10 +390,17 @@ public class ControlPaneController implements Initializable {
 
                 if ((!end.isAfter(start1) && start.isBefore(start1))
                         || (!start.isBefore(end1) && end.isAfter(end1))) {
-                    // correct
+                    // correct -- no clash found
                 } else {
                     System.out.println("Clash : \t\n" + array.get(i) + " and "
                             + array.get(j));
+                    msg += array.get(i).getCourseTitle() + "("
+                            + array.get(i).getCourseId() + ") and " + array.get(i).getCourseTitle() + "("
+                            + array.get(i).getCourseId() + ")" + "\n";
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK);
+                    alert.initModality(Modality.WINDOW_MODAL);
+                    alert.setTitle("Clashes!");
+                    alert.showAndWait();
                 }
 
             }
