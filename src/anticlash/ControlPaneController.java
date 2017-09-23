@@ -89,6 +89,8 @@ public class ControlPaneController implements Initializable {
 
     private static Course cCopy;
 
+    private static String msg = "";     // hold alert message
+
     @FXML
     private JFXListView<Label> tueList;
     @FXML
@@ -372,6 +374,10 @@ public class ControlPaneController implements Initializable {
         tmp.forEach((c) -> {
             findClash(c);
         });
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK);
+        alert.initModality(Modality.WINDOW_MODAL);
+        alert.setTitle("Clashes!");
+        alert.showAndWait();
 
     }
 
@@ -381,7 +387,6 @@ public class ControlPaneController implements Initializable {
                 if (i == j) {
                     break;
                 }
-                String msg = "";
                 LocalTime start = array.get(i).getStartTime();
                 LocalTime end = array.get(i).getEndTime();
 
@@ -397,10 +402,6 @@ public class ControlPaneController implements Initializable {
                     msg += array.get(i).getCourseTitle() + "("
                             + array.get(i).getCourseId() + ") and " + array.get(i).getCourseTitle() + "("
                             + array.get(i).getCourseId() + ")" + "\n";
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION, msg, ButtonType.OK);
-                    alert.initModality(Modality.WINDOW_MODAL);
-                    alert.setTitle("Clashes!");
-                    alert.showAndWait();
                 }
 
             }
